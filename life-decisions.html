@@ -8,8 +8,8 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #555555;
+    background: #f5fff0; /* soft greenish cream */
+    color: #333333;
     margin: 0;
     padding: 20px;
     text-align: center;
@@ -27,17 +27,18 @@
   }
 
   nav a:hover {
+    color: #d35400;
     text-decoration: underline;
   }
 
   h1 {
-    color: #222222;
+    color: #1a3e70;
     font-size: 36px;
     margin-bottom: 15px;
   }
 
   h2 {
-    color: #222222;
+    color: #1a3e70;
     font-size: 28px;
     margin-top: 25px;
     margin-bottom: 10px;
@@ -62,11 +63,19 @@
     font-size: 16px;
   }
 
+  ul li::marker {
+    color: #1a73e8;
+  }
+
+  strong {
+    color: #d35400;
+  }
+
   a.button, button {
     display: inline-block;
     padding: 12px 24px;
     margin: 15px 0;
-    background: #000;
+    background: #1a73e8;
     color: #fff;
     border-radius: 6px;
     border: none;
@@ -76,7 +85,7 @@
   }
 
   a.button:hover, button:hover {
-    background: #333;
+    background: #155bb5;
   }
 
   hr {
