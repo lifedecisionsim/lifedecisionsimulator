@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Burnout Risk Calculator – Evaluate your risk of burnout and get tips to manage stress.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnout Risk Calculator</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; background: #f5f7fa; }
+        input, select { padding: 8px; margin: 5px; width: 200px; }
+        button { padding: 10px 20px; margin-top: 10px; background: #000; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+        button:hover { background: #333; }
+        #result { margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+<h1>Burnout Risk Calculator</h1>
+
+<input type="number" id="hours" placeholder="Weekly Work Hours" />
+<input type="number" id="stress" placeholder="Stress Level (1-10)" />
+<input type="number" id="years" placeholder="Years in Current Role" />
+<br>
+<button onclick="calculateBurnout()">Check Burnout Risk</button>
+
+<div id="result"></div>
+
+<script>
+function calculateBurnout() {
+    const hours = parseFloat(document.getElementById('hours').value);
+    const stress = parseFloat(document.getElementById('stress').value);
+    const years = parseFloat(document.getElementById('years').value);
+
+    if(isNaN(hours) || isNaN(stress) || isNaN(years)) {
+        alert('Please fill in all fields correctly.');
+        return;
+    }
+
+    // Simple formula for burnout risk
+    let score = (hours / 40) * 0.4 + (stress / 10) * 0.4 + (years / 10) * 0.2;
+    
+    let risk = '';
+    let advice = '';
+    
+    if(score < 0.4) {
+        risk = 'Low';
+        advice = 'Keep up your work-life balance!';
+    } else if(score < 0.7) {
+        risk = 'Medium';
+        advice = 'Consider short breaks and mindfulness exercises.';
+    } else {
+        risk = 'High';
+        advice = 'Take action: reduce workload, seek support, and prioritize rest.';
+    }
+    
+    document.getElementById('result').innerHTML = `<p>Burnout Risk: <strong>${risk}</strong></p><p>${advice}</p>`;
+}
+</script>
+
+</body>
+</html>
