@@ -1,57 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Life Decision Simulator – Project your salary growth, burnout risk, and make smarter life decisions.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Decision Simulator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
-            text-align: center;
-            padding: 50px 20px;
-            color: #555555;
-        }
-        h1 { color: #222222; font-size: 36px; }
-        h2 { color: #222222; font-size: 28px; margin-top: 20px; }
-        a { color: #1a73e8; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        nav a { margin: 0 10px; font-weight: bold; }
-        button { display: inline-block; padding: 12px 24px; margin: 10px 0; background: #000; color: #fff; border-radius: 6px; border: none; cursor: pointer; }
-        button:hover { background: #333; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Decision Simulator</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f8ff; /* light blue */
+    color: #555555;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  nav {
+    margin-bottom: 20px;
+  }
+
+  nav a {
+    margin: 0 12px;
+    font-weight: bold;
+    color: #1a73e8;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: #d35400;
+    text-decoration: underline;
+  }
+
+  h1 {
+    color: #1a3e70;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    color: #1a3e70;
+    margin-top: 40px;
+  }
+
+  p {
+    max-width: 800px;
+    margin: 10px auto;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .card {
+    background: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .card h3 {
+    color: #1a3e70;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #1a73e8;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .button:hover {
+    background: #155bb5;
+  }
+
+  footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #888;
+  }
+
+</style>
 </head>
+
 <body>
 
-<!-- NAVIGATION MENU -->
 <nav>
   <a href="index.html">Home</a> |
   <a href="salary-calculator.html">Salary Calculator</a> |
-  <a href="burnout-calculator.html">Burnout Calculator</a> |
-  <a href="salary-info.html">Salary Info</a> |
-  <a href="burnout-info.html">Burnout Info</a> |
-  <a href="about.html">About</a> |
-  <a href="privacy-policy.html">Privacy Policy</a> |
-  <a href="terms-of-service.html">Terms</a>
+  <a href="burnout-calculator.html">Burnout Calculator</a>
 </nav>
-<hr>
 
-<!-- HOMEPAGE CONTENT -->
 <h1>Life Decision Simulator</h1>
-<p>Welcome to Life Decision Simulator! Explore our interactive calculators to understand your future salary growth and burnout risk. Make informed career and life decisions today.</p>
 
-<h2>Our Tools</h2>
-<ul>
-  <li><a href="salary-calculator.html">Salary Projection Calculator</a> – Plan your earnings and career growth.</li>
-  <li><a href="burnout-calculator.html">Burnout Risk Calculator</a> – Measure stress levels and get actionable tips.</li>
-</ul>
+<p>
+Welcome to Life Decision Simulator — your interactive tool to explore how career choices,
+salary growth, and burnout risk affect your future.
+Make smarter life decisions with real projections.
+</p>
 
-<p>Other calculators coming soon: Savings Growth, Life Path Comparison, and more. Start planning your future today!</p>
+<h2>Explore Our Tools</h2>
 
-<!-- CALCULATOR BUTTONS -->
-<a href="salary-calculator.html" class="button">Launch Salary Projection Calculator</a>
-<a href="burnout-calculator.html" class="button">Launch Burnout Risk Calculator</a>
+<div class="card-container">
+
+  <div class="card">
+    <h3>Salary Projection Calculator</h3>
+    <p>Estimate your future earnings based on raises, bonuses, and time.</p>
+    <a href="salary-calculator.html" class="button">Try Calculator</a>
+  </div>
+
+  <div class="card">
+    <h3>Burnout Risk Calculator</h3>
+    <p>Evaluate your stress levels and identify potential burnout risks.</p>
+    <a href="burnout-calculator.html" class="button">Check Burnout</a>
+  </div>
+
+  <div class="card">
+    <h3>Career & Life Articles</h3>
+    <p>Read expert insights on salary planning, burnout prevention, and smart life decisions.</p>
+    <a href="career-salary.html" class="button">Read Articles</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Life Decision Simulator | All Rights Reserved
+</footer>
 
 </body>
 </html>
