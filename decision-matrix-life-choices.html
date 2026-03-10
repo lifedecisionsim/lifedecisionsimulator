@@ -127,6 +127,18 @@ console.log(results);
 
 <script>
 
+const options = [
+ { name: "Stay at current job", salary: 6, stress: 7, growth: 5 },
+ { name: "Accept job offer", salary: 8, stress: 6, growth: 8 },
+ { name: "Start business", salary: 5, stress: 5, growth: 10 }
+];
+
+const weights = {
+ salary: 0.4,
+ stress: 0.2,
+ growth: 0.4
+};
+
 function calculateScore(option){
  return option.salary * weights.salary +
         option.stress * weights.stress +
@@ -134,11 +146,15 @@ function calculateScore(option){
 }
 
 function simulate(option){
+
  let total = 0;
+
  for(let i=0;i<1000;i++){
    total += calculateScore(option) * Math.random();
  }
+
  return total / 1000;
+
 }
 
 const results = options.map(option => {
@@ -165,7 +181,6 @@ new Chart(ctx,{
 });
 
 </script>
-
 ---
 
 <h2>Conclusion</h2>
