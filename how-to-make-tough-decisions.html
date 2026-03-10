@@ -90,25 +90,72 @@ console.log(results)
   <section>
     <h2>Step 7: Visualize Results</h2>
     <canvas id="decisionChart" width="600" height="400"></canvas>
-    <script>
-      // Render chart using simulation results
-      const ctx = document.getElementById('decisionChart').getContext('2d');
-      const labels = results.map(o => o.name);
-      const data = results.map(o => o.score);
+   <script>
 
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: labels,
-          datasets: [{
-            label: 'Simulated Score',
-            data: data,
-            backgroundColor: 'rgba(75, 192, 192, 0.6)'
-          }]
-        },
-        options: { responsive: true }
-      });
-    </script>
+const options = [
+ { name: "Stay at current job", financial: 6, workLife: 8, growth: 5, satisfaction: 7 },
+ { name: "Switch to new company", financial: 8, workLife: 7, growth: 9, satisfaction: 8 },
+ { name: "Start own business", financial: 5, workLife: 6, growth: 10, satisfaction: 9 }
+];
+
+const weights = {
+ financial: 0.3,
+ workLife: 0.2,
+ growth: 0.3,
+ satisfaction: 0.2
+};
+
+function calculateTotal(option){
+ return option.financial * weights.financial +
+        option.workLife * weights.workLife +
+        option.growth * weights.growth +
+        option.satisfaction * weights.satisfaction;
+}
+
+function simulate(option){
+
+ let total = 0;
+
+ for(let i=0;i<1000;i++){
+   total += calculateTotal(option) * Math.random();
+ }
+
+ return total / 1000;
+
+}
+
+const results = options.map(option => {
+ return {
+  name: option.name,
+  score: simulate(option)
+ };
+});
+
+const labels = results.map(r => r.name);
+const scores = results.map(r => r.score);
+
+const ctx = document.getElementById("decisionChart");
+
+new Chart(ctx,{
+ type: "bar",
+ data: {
+  labels: labels,
+  datasets: [{
+   label: "Decision Score",
+   data: scores
+  }]
+ },
+ options: {
+  responsive: true,
+  scales: {
+   y: {
+    beginAtZero: true
+   }
+  }
+ }
+});
+
+</script>
   </section>
 
   <section>
