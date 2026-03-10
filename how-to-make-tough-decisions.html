@@ -33,7 +33,9 @@
 
   <section>
     <h2>Step 2: Assign Values to Each Option</h2>
+    <p>Use numeric scores (1–10) for each criterion:</p>
     <pre><code>
+// Step 2: Assign Values
 const options = [
   { name: "Stay at current job", financial: 6, workLife: 8, growth: 5, satisfaction: 7 },
   { name: "Switch to new company", financial: 8, workLife: 7, growth: 9, satisfaction: 8 },
@@ -44,6 +46,7 @@ const options = [
 
   <section>
     <h2>Step 3: Weight Your Criteria</h2>
+    <p>Not all criteria are equally important; assign weights:</p>
     <pre><code>
 const criteriaWeights = {
   financial: 0.3,
@@ -56,6 +59,7 @@ const criteriaWeights = {
 
   <section>
     <h2>Step 4 & 5: Calculate Scores and Simulate</h2>
+    <p>Compute total scores and simulate decision outcomes:</p>
     <pre><code>
 function calculateScores(options, weights) {
   return options.map(option => {
@@ -76,10 +80,6 @@ function simulateDecision(option, iterations = 1000) {
   }
   return total / iterations;
 }
-
-const scoredOptions = calculateScores(options, criteriaWeights);
-scoredOptions.forEach(option => option.simulatedScore = simulateDecision(option));
-console.log(scoredOptions);
     </code></pre>
   </section>
 
@@ -92,6 +92,10 @@ console.log(scoredOptions);
     <h2>Step 7: Visualize Results</h2>
     <canvas id="decisionChart" width="600" height="400"></canvas>
     <script>
+      // Run simulation for actual chart
+      const scoredOptions = calculateScores(options, criteriaWeights);
+      scoredOptions.forEach(option => option.simulatedScore = simulateDecision(option));
+
       const ctx = document.getElementById('decisionChart').getContext('2d');
       const labels = scoredOptions.map(o => o.name);
       const data = scoredOptions.map(o => o.simulatedScore);
