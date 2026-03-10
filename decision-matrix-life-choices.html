@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Decision Matrix for Life Choices | Life Decision Simulator</title>
+
+<meta name="description" content="Learn how to use a decision matrix to evaluate life choices like career moves, job offers, and personal decisions using weighted scoring and simulation.">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a> |
+<a href="salary-calculator.html">Salary Calculator</a> |
+<a href="burnout-calculator.html">Burnout Calculator</a> |
+<a href="salary-growth.html">Salary Growth</a> |
+<a href="job-offer-decision-calculator.html">Job Offer Calculator</a> |
+<a href="career-decision-calculator.html">Career Decision</a>
+</nav>
+
+<h1>How to Use a Decision Matrix for Life Choices</h1>
+
+<p>
+When facing big decisions like changing careers, accepting a job offer,
+or starting a business, emotions can cloud judgment.
+A <strong>decision matrix</strong> helps evaluate options logically
+by assigning values to important factors.
+</p>
+
+<p>
+Below is a simple example showing how a decision matrix can be calculated and simulated.
+</p>
+
+---
+
+<h2>Step 1: Define Your Options</h2>
+
+<ul>
+<li>Stay at current job</li>
+<li>Accept a new job offer</li>
+<li>Start a business</li>
+</ul>
+
+---
+
+<h2>Step 2: Assign Values</h2>
+
+<pre><code>
+const options = [
+ { name: "Stay at current job", salary: 6, stress: 7, growth: 5 },
+ { name: "Accept job offer", salary: 8, stress: 6, growth: 8 },
+ { name: "Start business", salary: 5, stress: 5, growth: 10 }
+];
+</code></pre>
+
+---
+
+<h2>Step 3: Set Importance (Weights)</h2>
+
+<pre><code>
+const weights = {
+ salary: 0.4,
+ stress: 0.2,
+ growth: 0.4
+};
+</code></pre>
+
+---
+
+<h2>Step 4: Calculate Total Scores</h2>
+
+<pre><code>
+function calculateScore(option) {
+
+ return option.salary * weights.salary +
+        option.stress * weights.stress +
+        option.growth * weights.growth;
+
+}
+</code></pre>
+
+---
+
+<h2>Step 5: Simulate Outcomes</h2>
+
+<pre><code>
+function simulate(option){
+
+ let total = 0;
+
+ for(let i=0;i<1000;i++){
+   total += calculateScore(option) * Math.random();
+ }
+
+ return total / 1000;
+
+}
+</code></pre>
+
+---
+
+<h2>Step 6: Run Simulation</h2>
+
+<pre><code>
+const results = options.map(option => {
+ return {
+   name: option.name,
+   score: simulate(option)
+ };
+});
+
+console.log(results);
+</code></pre>
+
+---
+
+<h2>Step 7: Visualize Results</h2>
+
+<canvas id="decisionChart"></canvas>
+
+<script>
+
+function calculateScore(option){
+ return option.salary * weights.salary +
+        option.stress * weights.stress +
+        option.growth * weights.growth;
+}
+
+function simulate(option){
+ let total = 0;
+ for(let i=0;i<1000;i++){
+   total += calculateScore(option) * Math.random();
+ }
+ return total / 1000;
+}
+
+const results = options.map(option => {
+ return {
+  name: option.name,
+  score: simulate(option)
+ };
+});
+
+const labels = results.map(r => r.name);
+const scores = results.map(r => r.score);
+
+const ctx = document.getElementById("decisionChart");
+
+new Chart(ctx,{
+ type:"bar",
+ data:{
+  labels:labels,
+  datasets:[{
+   label:"Decision Score",
+   data:scores
+  }]
+ }
+});
+
+</script>
+
+---
+
+<h2>Conclusion</h2>
+
+<p>
+A decision matrix helps remove bias and compare options logically.
+Combined with simulation, it can reveal which choice offers the best expected outcome.
+</p>
+
+<p>
+Try our interactive tools to explore your career and life decisions:
+</p>
+
+<ul>
+
+<li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
+
+<li><a href="job-offer-decision-calculator.html">Job Offer Decision Tool</a></li>
+
+<li><a href="how-to-make-tough-decisions.html">How to Make Tough Life Decisions</a></li>
+
+</ul>
+
+<footer>
+
+<p>© 2026 Life Decision Simulator</p>
+
+</footer>
+
+</body>
+</html>
