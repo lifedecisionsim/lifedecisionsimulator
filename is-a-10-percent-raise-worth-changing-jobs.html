@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is a 10% Salary Increase Worth Changing Jobs?</title>
+  <meta name="description" content="Use this guide and calculator to decide if a 10% salary increase is worth switching jobs. Analyze long-term financial impact, growth, and career risk.">
+  <link rel="canonical" href="https://lifedecisionsimulator.com/is-a-10-percent-raise-worth-changing-jobs.html">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a> |
+  <a href="career-decision-calculator.html">Career Decision</a> |
+  <a href="salary-calculator.html">Salary Calculator</a> |
+  <a href="burnout-calculator.html">Burnout Calculator</a>
+</nav>
+
+<h1>Is a 10% Salary Increase Worth Changing Jobs?</h1>
+
+<p>
+Many professionals face this exact question when receiving a job offer.
+A 10% raise may sound attractive, but the real decision depends on
+long-term growth, stability, benefits, work-life balance, and risk.
+</p>
+
+<h2>Step 1: Compare Long-Term Impact</h2>
+
+<p>
+A small salary increase today can become significant over time due to
+compound growth. Use our tools to simulate different career paths.
+</p>
+
+<p>
+<a href="salary-calculator.html" class="button">Try Salary Calculator</a>
+</p>
+
+<h2>Step 2: Consider Growth Potential</h2>
+
+<p>
+Sometimes a 10% raise comes with better promotion opportunities,
+skills development, or faster career progression.
+</p>
+
+<p>
+<a href="career-decision-calculator.html" class="button">Use Career Decision Calculator</a>
+</p>
+
+<h2>Example Projection</h2>
+
+<canvas id="salaryChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('salaryChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Current Job', 'New Job (+10%)'],
+        datasets: [{
+            label: 'Annual Salary Example',
+            data: [50000, 55000],
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+</script>
+
+<h2>When a 10% Raise Is Worth It</h2>
+
+<ul>
+<li>If growth opportunities improve significantly</li>
+<li>If work-life balance improves</li>
+<li>If job stability remains strong</li>
+<li>If long-term salary trajectory is higher</li>
+</ul>
+
+<h2>When It Might NOT Be Worth It</h2>
+
+<ul>
+<li>If the role has limited growth</li>
+<li>If stress levels increase substantially</li>
+<li>If benefits decrease</li>
+<li>If promotion potential is lower</li>
+</ul>
+
+<h2>Make a Data-Based Decision</h2>
+
+<p>
+Instead of guessing, simulate your options using our interactive tools.
+Combine financial projection with career satisfaction analysis.
+</p>
+
+<p>
+<a href="job-offer-decision-calculator.html" class="button">Job Offer Decision Tool</a>
+</p>
+
+<hr>
+
+<p>
+Explore more guides and tools to make smarter career decisions.
+</p>
+
+</body>
+</html>
