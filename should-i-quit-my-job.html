@@ -37,8 +37,13 @@
     }
 
     input[type="range"] {
-      width: 100%;
-      margin: 10px 0 20px 0;
+      width: 80%;
+      margin: 10px 0;
+    }
+
+    span.slider-value {
+      font-weight: bold;
+      margin-left: 10px;
     }
 
     select {
@@ -79,10 +84,12 @@
 
   <form id="form">
     <label>Job Satisfaction (1–10)</label><br>
-    <input type="range" name="satisfaction" min="1" max="10" value="5"><br>
+    <input type="range" name="satisfaction" min="1" max="10" value="5">
+    <span id="satisfactionValue" class="slider-value">5</span><br><br>
 
     <label>Stress Level (1–10)</label><br>
-    <input type="range" name="stress" min="1" max="10" value="5"><br>
+    <input type="range" name="stress" min="1" max="10" value="5">
+    <span id="stressValue" class="slider-value">5</span><br><br>
 
     <label>Do you have a plan after quitting?</label><br>
     <select name="plan">
@@ -100,11 +107,28 @@
     const form = document.getElementById("form");
     const resultDiv = document.getElementById("result");
 
+    // Sliders
+    const satisfactionSlider = form.satisfaction;
+    const satisfactionSpan = document.getElementById("satisfactionValue");
+
+    const stressSlider = form.stress;
+    const stressSpan = document.getElementById("stressValue");
+
+    // Update slider numbers live
+    satisfactionSlider.addEventListener("input", () => {
+      satisfactionSpan.textContent = satisfactionSlider.value;
+    });
+
+    stressSlider.addEventListener("input", () => {
+      stressSpan.textContent = stressSlider.value;
+    });
+
+    // Handle form submission
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const satisfaction = Number(form.satisfaction.value);
-      const stress = Number(form.stress.value);
+      const satisfaction = Number(satisfactionSlider.value);
+      const stress = Number(stressSlider.value);
       const plan = form.plan.value === "yes";
 
       // 🔹 Simple decision algorithm
