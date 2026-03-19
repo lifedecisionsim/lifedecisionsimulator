@@ -1,151 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Should You Accept a Lower Salary for Better Work-Life Balance?</title>
-  <meta name="description" content="Use this free simulator to decide if accepting a lower salary for better work-life balance is worth it.">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 40px;
-      max-width: 600px;
-      margin: auto;
-      color: #333;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2b8a3e;
-    }
-
-    p {
-      text-align: center;
-    }
-
-    form {
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-top: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input[type="range"], input[type="number"] {
-      width: 80%;
-      margin: 10px 0;
-    }
-
-    span.slider-value {
-      font-weight: bold;
-      margin-left: 10px;
-    }
-
-    button {
-      background: #2b8a3e;
-      color: #fff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-    }
-
-    button:hover {
-      background: #237032;
-    }
-
-    #result {
-      margin-top: 30px;
-      padding: 20px;
-      background: #e0ffe0;
-      border-radius: 12px;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Should I Accept a Lower Salary for Better Work-Life Balance? | Life Decision Simulator</title>
+<meta name="description" content="Learn if taking a lower-paying job is worth it for better work-life balance. Use our calculators to simulate outcomes and avoid burnout.">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://lifedecisionsimulator.com/accept-lower-salary-for-better-work-life.html">
 </head>
-
 <body>
 
-  <h1>Should You Accept a Lower Salary?</h1>
-  <p>See if better work-life balance is worth the trade-off</p>
+<nav>
+  <a href="index.html">Home</a> |
+  <a href="salary-calculator.html">Salary Calculator</a> |
+  <a href="burnout-calculator.html">Burnout Calculator</a> |
+  <a href="salary-growth.html">Salary Growth</a> |
+  <a href="job-offer-decision-calculator.html">Job Offer Calculator</a> |
+  <a href="career-decision-calculator.html">Career Decision</a>
+</nav>
 
-  <form id="form">
+<h1>Should I Accept a Lower Salary for Better Work-Life Balance?</h1>
 
-    <label>Current Salary (€)</label><br>
-    <input type="number" name="salary" value="3000" required><br><br>
+<p>Choosing a job with a lower salary can be worth it if it significantly improves your well-being and reduces burnout. Let’s explore how to evaluate this decision.</p>
 
-    <label>New Salary Offer (€)</label><br>
-    <input type="number" name="newSalary" value="2500" required><br><br>
+<h2>Step 1: Compare Benefits and Stress Levels</h2>
+<p>Use our <a href="burnout-calculator.html">Burnout Calculator</a> to understand how different job scenarios impact your health and happiness.</p>
 
-    <label>Work-Life Balance Improvement (1–10)</label><br>
-    <input type="range" name="balance" min="1" max="10" value="5">
-    <span id="balanceValue" class="slider-value">5</span><br><br>
+<h2>Step 2: Financial Considerations</h2>
+<p>Calculate the financial difference using our <a href="salary-calculator.html">Salary Calculator</a>. Factor in long-term growth potential.</p>
 
-    <label>Stress Reduction (1–10)</label><br>
-    <input type="range" name="stress" min="1" max="10" value="5">
-    <span id="stressValue" class="slider-value">5</span><br><br>
+<!-- People Also Ask Section -->
+<section>
+<h2>People Also Ask About Work-Life Balance</h2>
 
-    <button type="submit">Simulate</button>
+<div class="faq-item">
+  <h3>Is it ever worth taking a lower-paying job?</h3>
+  <p>If it significantly reduces stress and improves health, it can be a smart long-term choice.</p>
+</div>
 
-  </form>
+<div class="faq-item">
+  <h3>How do I evaluate work-life balance?</h3>
+  <p>Consider commute, hours, flexibility, and burnout risk. Our calculators can simulate different scenarios.</p>
+</div>
 
-  <div id="result"></div>
+<div class="faq-item">
+  <h3>What are alternatives to a lower-paying job?</h3>
+  <p>Negotiate remote work, flexible hours, or extra vacation days to improve balance without losing salary.</p>
+</div>
 
-  <script>
-    const form = document.getElementById("form");
-    const resultDiv = document.getElementById("result");
+<div class="faq-item">
+  <h3>How does job satisfaction affect long-term career growth?</h3>
+  <p>High satisfaction reduces burnout and improves performance, which may lead to better promotions later.</p>
+</div>
 
-    const balanceSlider = form.balance;
-    const balanceSpan = document.getElementById("balanceValue");
-    const stressSlider = form.stress;
-    const stressSpan = document.getElementById("stressValue");
+</section>
+<h2>Related Career Decision Tools</h2>
 
-    balanceSlider.addEventListener("input", () => {
-      balanceSpan.textContent = balanceSlider.value;
-    });
+<ul>
+<li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
+<li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
+<li><a href="salary-calculator.html">Salary Projection Calculator</a></li>
+<li><a href="burnout-calculator.html">Burnout Risk Calculator</a></li>
+<li><a href="salary-growth.html">Plan Your Salary Growth Over 5 Years</a></li>
+</ul>
 
-    stressSlider.addEventListener("input", () => {
-      stressSpan.textContent = stressSlider.value;
-    });
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const salary = Number(form.salary.value);
-      const newSalary = Number(form.newSalary.value);
-      const balance = Number(balanceSlider.value);
-      const stress = Number(stressSlider.value);
-
-      const salaryDrop = salary - newSalary;
-
-      let score = balance * 6 + stress * 4 - (salaryDrop / 100);
-
-      if (score > 100) score = 100;
-      if (score < 0) score = 0;
-
-      let message = "";
-
-      if (score > 70) {
-        message = "The improved quality of life likely outweighs the salary reduction.";
-      } else if (score > 40) {
-        message = "This is a balanced trade-off. Think carefully about your priorities.";
-      } else {
-        message = "The financial loss may not be worth it right now.";
-      }
-
-      resultDiv.innerHTML = `
-        <h2>${score}% worth it</h2>
-        <p>${message}</p>
-      `;
-    });
-  </script>
+<footer>
+<p>© 2026 Life Decision Simulator</p>
+</footer>
 
 </body>
 </html>
