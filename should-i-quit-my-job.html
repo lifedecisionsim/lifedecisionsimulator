@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Should I Quit My Job? (Free Simulator)</title>
+
+  <!-- ✅ CSS Styling included -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2b8a3e;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin: 10px 0 20px 0;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #2b8a3e;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #237032;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e0ffe0;
+      border-radius: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Should You Quit Your Job?</h1>
+  <p>Get a realistic simulation in just 60 seconds</p>
+
+  <form id="form">
+    <label>Job Satisfaction (1–10)</label><br>
+    <input type="range" name="satisfaction" min="1" max="10" value="5"><br>
+
+    <label>Stress Level (1–10)</label><br>
+    <input type="range" name="stress" min="1" max="10" value="5"><br>
+
+    <label>Do you have a plan after quitting?</label><br>
+    <select name="plan">
+      <option value="no">No plan</option>
+      <option value="yes">Yes, I have a plan</option>
+    </select>
+
+    <button type="submit">Simulate</button>
+  </form>
+
+  <div id="result"></div>
+
+  <!-- ✅ JavaScript included -->
+  <script>
+    const form = document.getElementById("form");
+    const resultDiv = document.getElementById("result");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const satisfaction = Number(form.satisfaction.value);
+      const stress = Number(form.stress.value);
+      const plan = form.plan.value === "yes";
+
+      // 🔹 Simple decision algorithm
+      let score = (10 - satisfaction) * 5 + stress * 5;
+      if (plan) score += 10; // having a plan increases readiness
+      if (score > 100) score = 100;
+
+      // 🔹 Emotional message
+      let message = "";
+      if (score > 70) {
+        message = "You’re mentally ready. Staying may hurt more than leaving.";
+      } else if (score > 40) {
+        message = "You feel stuck. You want change, but fear is holding you back.";
+      } else {
+        message = "It may not be the right time yet. Focus on stability for now.";
+      }
+
+      // 🔹 Display result
+      resultDiv.innerHTML = `
+        <h2>${score}% ready to quit</h2>
+        <p>${message}</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
