@@ -102,8 +102,8 @@
     <div id="links-consider">
       <p>Thinking about quitting? Check these resources:</p>
       <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/next-steps-after-quitting">Plan Your Next Steps After Quitting</a></li>
-        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Use the Decision Matrix Tool</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Use the Decision Matrix Tool to Evaluate Options</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/career-advice">Read Career Advice Articles</a></li>
       </ul>
     </div>
     <div id="links-stay">
@@ -132,9 +132,11 @@
     const linksConsider = document.getElementById("links-consider");
     const linksStay = document.getElementById("links-stay");
 
+    // Live slider updates
     satisfactionSlider.addEventListener("input", () => { satisfactionSpan.textContent = satisfactionSlider.value; });
     stressSlider.addEventListener("input", () => { stressSpan.textContent = stressSlider.value; });
 
+    // Simulation logic
     form.addEventListener("submit", function(e){
       e.preventDefault();
       const age = Number(form.age.value);
@@ -152,6 +154,7 @@
 
       let message = "";
       let className = "";
+
       if(score > 70){
         message = "You’re mentally ready. Staying may hurt more than leaving. Plan carefully!";
         className = "result-high";
@@ -172,6 +175,7 @@
       resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
       resultDiv.className = className;
 
+      // Show contextual links matching result box
       nextSteps.style.display = "block";
       nextSteps.style.backgroundColor = window.getComputedStyle(resultDiv).backgroundColor;
       nextSteps.scrollIntoView({behavior: 'smooth'});
