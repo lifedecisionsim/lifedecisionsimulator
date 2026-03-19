@@ -5,7 +5,6 @@
   <title>Should I Quit My Job? (Free Simulator)</title>
   <meta name="description" content="Use this free simulator to see if you should quit your job. Enter your age, salary, expenses, job satisfaction, and stress level to get a realistic and emotional result.">
 
-  <!-- ✅ CSS Styling -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -16,14 +15,8 @@
       color: #333;
     }
 
-    h1 {
-      text-align: center;
-      color: #2b8a3e;
-    }
-
-    p {
-      text-align: center;
-    }
+    h1 { text-align: center; color: #2b8a3e; }
+    p { text-align: center; }
 
     form {
       background: #fff;
@@ -33,42 +26,16 @@
       margin-top: 20px;
     }
 
-    label {
-      font-weight: bold;
-    }
-
-    input[type="range"], input[type="number"] {
-      width: 80%;
-      margin: 10px 0;
-    }
-
-    span.slider-value {
-      font-weight: bold;
-      margin-left: 10px;
-    }
-
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-    }
-
+    label { font-weight: bold; }
+    input[type="range"], input[type="number"] { width: 80%; margin: 10px 0; }
+    span.slider-value { font-weight: bold; margin-left: 10px; }
+    select { width: 100%; padding: 8px; margin-bottom: 20px; border-radius: 6px; }
     button {
-      background: #2b8a3e;
-      color: #fff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
+      background: #2b8a3e; color: #fff; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 16px; width: 100%;
     }
+    button:hover { background: #237032; }
 
-    button:hover {
-      background: #237032;
-    }
-
+    /* Result box */
     #result {
       margin-top: 30px;
       padding: 20px;
@@ -82,31 +49,17 @@
     .result-medium { background: #fff8e0; color: #b57f00; }
     .result-low { background: #ffe0e0; color: #b52b2b; }
 
-    /* Contextual links styling */
+    /* Contextual links */
     #next-steps {
-      margin-top: 25px;
+      margin-top: 20px;
       padding: 20px;
       border-radius: 12px;
-      background: #f0f4f8;
+      display: none;
+      font-weight: normal;
     }
-
-    #next-steps h2 {
-      margin-top: 0;
-    }
-
-    #next-steps ul {
-      list-style: disc;
-      padding-left: 20px;
-    }
-
-    #next-steps a {
-      color: #1a73e8;
-      text-decoration: none;
-    }
-
-    #next-steps a:hover {
-      text-decoration: underline;
-    }
+    #next-steps ul { list-style: disc; padding-left: 20px; }
+    #next-steps a { color: #1a73e8; text-decoration: none; }
+    #next-steps a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -143,57 +96,47 @@
 
   <div id="result"></div>
 
-  <!-- Contextual Links Section -->
-  <div id="next-steps" style="display:none;">
+  <!-- Contextual Links -->
+  <div id="next-steps">
     <h2>Recommended Next Steps</h2>
-    <div id="links-consider" style="display:none;">
+    <div id="links-consider">
       <p>Thinking about quitting? Check these resources:</p>
       <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/next-steps-after-quitting" title="Next steps after quitting your job">Plan Your Next Steps After Quitting</a></li>
-        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix" title="Decision-making tool">Use the Decision Matrix Tool to Evaluate Options</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/next-steps-after-quitting">Plan Your Next Steps After Quitting</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Use the Decision Matrix Tool</a></li>
       </ul>
     </div>
-    <div id="links-stay" style="display:none;">
+    <div id="links-stay">
       <p>Not ready to quit yet? Explore ways to improve your job:</p>
       <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/career-advice" title="Career advice articles">Read Career Advice Articles</a></li>
-        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix" title="Decision-making tool">Try the Decision Matrix Tool</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/career-advice">Read Career Advice Articles</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Try the Decision Matrix Tool</a></li>
       </ul>
     </div>
     <div>
       <p>More tools:</p>
       <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/" title="LifeDecisionSimulator Home Page">Return to LifeDecisionSimulator Home</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/">Return to LifeDecisionSimulator Home</a></li>
       </ul>
     </div>
   </div>
 
-  <!-- ✅ JavaScript -->
   <script>
     const form = document.getElementById("form");
     const resultDiv = document.getElementById("result");
-
     const satisfactionSlider = form.satisfaction;
     const satisfactionSpan = document.getElementById("satisfactionValue");
     const stressSlider = form.stress;
     const stressSpan = document.getElementById("stressValue");
-
     const nextSteps = document.getElementById("next-steps");
     const linksConsider = document.getElementById("links-consider");
     const linksStay = document.getElementById("links-stay");
 
-    // Live slider values
-    satisfactionSlider.addEventListener("input", () => {
-      satisfactionSpan.textContent = satisfactionSlider.value;
-    });
-    stressSlider.addEventListener("input", () => {
-      stressSpan.textContent = stressSlider.value;
-    });
+    satisfactionSlider.addEventListener("input", () => { satisfactionSpan.textContent = satisfactionSlider.value; });
+    stressSlider.addEventListener("input", () => { stressSpan.textContent = stressSlider.value; });
 
-    // Handle simulation
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function(e){
       e.preventDefault();
-
       const age = Number(form.age.value);
       const salary = Number(form.salary.value);
       const expenses = Number(form.expenses.value);
@@ -201,24 +144,20 @@
       const stress = Number(stressSlider.value);
       const plan = form.plan.value === "yes";
 
-      // 🔹 Base score from job satisfaction & stress
       let score = (10 - satisfaction) * 5 + stress * 5;
+      const monthsCovered = salary / expenses;
+      if(monthsCovered >= 1.5) score += 10;
+      if(plan) score += 10;
+      if(score > 100) score = 100;
 
-      // 🔹 Financial buffer: higher savings vs expenses = safer to quit
-      const monthsCovered = salary > 0 ? salary / expenses : 0;
-      if (monthsCovered >= 1.5) score += 10;  // extra confidence if surplus
-      if (plan) score += 10; // having a plan increases readiness
-      if (score > 100) score = 100;
-
-      // 🔹 Emotional message & coloring
       let message = "";
       let className = "";
-      if (score > 70) {
+      if(score > 70){
         message = "You’re mentally ready. Staying may hurt more than leaving. Plan carefully!";
         className = "result-high";
         linksConsider.style.display = "block";
         linksStay.style.display = "none";
-      } else if (score > 40) {
+      } else if(score > 40){
         message = "You feel stuck. You want change, but fear is holding you back. Consider your finances and next steps.";
         className = "result-medium";
         linksConsider.style.display = "block";
@@ -232,8 +171,10 @@
 
       resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
       resultDiv.className = className;
+
       nextSteps.style.display = "block";
-      nextSteps.scrollIntoView({ behavior: 'smooth' });
+      nextSteps.style.backgroundColor = window.getComputedStyle(resultDiv).backgroundColor;
+      nextSteps.scrollIntoView({behavior: 'smooth'});
     });
   </script>
 
