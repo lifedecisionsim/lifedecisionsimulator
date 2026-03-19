@@ -1,72 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Should I Quit My Job Without Another Job? | Life Decision Simulator</title>
-<meta name="description" content="Explore whether quitting your job without another offer makes sense. Use our interactive Career Decision Calculator to simulate outcomes.">
-<link rel="stylesheet" href="style.css">
-<link rel="canonical" href="https://lifedecisionsimulator.com/should-i-quit-my-job-without-another-job.html">
+  <meta charset="UTF-8">
+  <title>Should I Quit My Job? (Free Simulator)</title>
+  <meta name="description" content="Use this free simulator to see if you should quit your job. Enter your age, salary, expenses, job satisfaction, and stress level to get a realistic and emotional result.">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      color: #333;
+    }
+
+    h1 { text-align: center; color: #2b8a3e; }
+    p { text-align: center; }
+
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    label { font-weight: bold; }
+    input[type="range"], input[type="number"] { width: 80%; margin: 10px 0; }
+    span.slider-value { font-weight: bold; margin-left: 10px; }
+    select { width: 100%; padding: 8px; margin-bottom: 20px; border-radius: 6px; }
+    button {
+      background: #2b8a3e; color: #fff; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 16px; width: 100%;
+    }
+    button:hover { background: #237032; }
+
+    /* Result box */
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Color-coded results */
+    .result-high { background: #e0ffe0; color: #2b8a3e; }
+    .result-medium { background: #fff8e0; color: #b57f00; }
+    .result-low { background: #ffe0e0; color: #b52b2b; }
+
+    /* Contextual links */
+    #next-steps {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      display: none;
+      font-weight: normal;
+    }
+    #next-steps ul { list-style: none; padding-left: 0; }
+    #next-steps li {
+      margin-bottom: 10px;
+      transition: all 0.2s ease;
+    }
+    #next-steps a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #next-steps a::before {
+      content: "🔗 "; /* small link icon before text */
+    }
+    #next-steps li:hover a {
+      text-decoration: underline;
+      color: #1257a6;
+      transform: translateX(3px);
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Home</a> |
-  <a href="salary-calculator.html">Salary Calculator</a> |
-  <a href="burnout-calculator.html">Burnout Calculator</a> |
-  <a href="salary-growth.html">Salary Growth</a> |
-  <a href="job-offer-decision-calculator.html">Job Offer Calculator</a> |
-  <a href="career-decision-calculator.html">Career Decision</a>
-</nav>
+  <h1>Should You Quit Your Job?</h1>
+  <p>Get a realistic simulation in just 60 seconds</p>
 
-<h1>Should I Quit My Job Without Another Job?</h1>
+  <form id="form">
+    <label>Age</label><br>
+    <input type="number" name="age" min="18" max="70" value="30" required><br><br>
 
-<p>Thinking of quitting your job without a backup offer? This is a major career decision. We’ll help you weigh the risks, financial impact, and burnout factors using our Career Decision Calculator.</p>
+    <label>Monthly Salary (€)</label><br>
+    <input type="number" name="salary" min="0" value="3000" required><br><br>
 
-<h2>Step 1: Evaluate Your Situation</h2>
-<p>Consider your savings, job satisfaction, and career goals. Use our <a href="career-decision-calculator.html">Career Decision Calculator</a> to compare options.</p>
+    <label>Monthly Expenses (€)</label><br>
+    <input type="number" name="expenses" min="0" value="2000" required><br><br>
 
-<h2>Step 2: Simulate Outcomes</h2>
-<p>Try different scenarios: staying, quitting now, or finding another job first. Our tools help you make informed choices.</p>
+    <label>Job Satisfaction (1–10)</label><br>
+    <input type="range" name="satisfaction" min="1" max="10" value="5">
+    <span id="satisfactionValue" class="slider-value">5</span><br><br>
 
-<!-- People Also Ask Section -->
-<section>
-<h2>People Also Ask About Quitting Jobs</h2>
+    <label>Stress Level (1–10)</label><br>
+    <input type="range" name="stress" min="1" max="10" value="5">
+    <span id="stressValue" class="slider-value">5</span><br><br>
 
-<div class="faq-item">
-  <h3>Is it risky to quit without another job?</h3>
-  <p>Yes, financial stability and career momentum matter. Use our calculators to see potential outcomes.</p>
-</div>
+    <label>Do you have a plan after quitting?</label><br>
+    <select name="plan">
+      <option value="no">No plan</option>
+      <option value="yes">Yes, I have a plan</option>
+    </select>
 
-<div class="faq-item">
-  <h3>How much savings should I have before quitting?</h3>
-  <p>Experts recommend at least 3–6 months of expenses. Simulate different amounts in our Career Decision Calculator.</p>
-</div>
+    <button type="submit">Simulate</button>
+  </form>
 
-<div class="faq-item">
-  <h3>What are alternatives to quitting immediately?</h3>
-  <p>Negotiating for reduced hours, remote work, or internal transfer can be less risky than quitting outright.</p>
-</div>
+  <div id="result"></div>
 
-<div class="faq-item">
-  <h3>How to reduce stress while planning a career change?</h3>
-  <p>Track burnout risk using our <a href="burnout-calculator.html">Burnout Calculator</a> and plan accordingly.</p>
-</div>
+  <!-- Contextual Links -->
+  <div id="next-steps">
+    <h2>Recommended Next Steps</h2>
+    <div id="links-high">
+      <p>You're ready to quit! Check these resources:</p>
+      <ul>
+        <li><a href="should-i-quit-my-job-without-another-job.html">Quitting Without Another Job Guide</a></li>
+        <li><a href="decision-matrix-life-choices.html">Decision Matrix for Life Choices</a></li>
+        <li><a href="index.html">Return to Home</a></li>
+      </ul>
+    </div>
+    <div id="links-medium">
+      <p>Feeling stuck? Evaluate your options:</p>
+      <ul>
+        <li><a href="decision-matrix-life-choices.html">Decision Matrix for Life Choices</a></li>
+        <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
+        <li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
+        <li><a href="index.html">Return to Home</a></li>
+      </ul>
+    </div>
+    <div id="links-low">
+      <p>Not ready yet? Learn more about decision making:</p>
+      <ul>
+        <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+        <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
+        <li><a href="index.html">Return to Home</a></li>
+      </ul>
+    </div>
+  </div>
 
-</section>
-<h2>Related Career Decision Tools</h2>
+  <script>
+    const form = document.getElementById("form");
+    const resultDiv = document.getElementById("result");
+    const satisfactionSlider = form.satisfaction;
+    const satisfactionSpan = document.getElementById("satisfactionValue");
+    const stressSlider = form.stress;
+    const stressSpan = document.getElementById("stressValue");
 
-<ul>
-<li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
-<li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
-<li><a href="salary-calculator.html">Salary Projection Calculator</a></li>
-<li><a href="burnout-calculator.html">Burnout Risk Calculator</a></li>
-<li><a href="salary-growth.html">Plan Your Salary Growth Over 5 Years</a></li>
-</ul>
+    const nextSteps = document.getElementById("next-steps");
+    const linksHigh = document.getElementById("links-high");
+    const linksMedium = document.getElementById("links-medium");
+    const linksLow = document.getElementById("links-low");
 
-<footer>
-<p>© 2026 Life Decision Simulator</p>
-</footer>
+    // Live slider updates
+    satisfactionSlider.addEventListener("input", () => { satisfactionSpan.textContent = satisfactionSlider.value; });
+    stressSlider.addEventListener("input", () => { stressSpan.textContent = stressSlider.value; });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      const age = Number(form.age.value);
+      const salary = Number(form.salary.value);
+      const expenses = Number(form.expenses.value);
+      const satisfaction = Number(satisfactionSlider.value);
+      const stress = Number(stressSlider.value);
+      const plan = form.plan.value === "yes";
+
+      let score = (10 - satisfaction) * 5 + stress * 5;
+      const monthsCovered = salary / expenses;
+      if(monthsCovered >= 1.5) score += 10;
+      if(plan) score += 10;
+      if(score > 100) score = 100;
+
+      let message = "";
+      let className = "";
+
+      // Hide all link sections first
+      linksHigh.style.display = "none";
+      linksMedium.style.display = "none";
+      linksLow.style.display = "none";
+
+      if(score > 70){
+        message = "You’re mentally ready. Staying may hurt more than leaving. Plan carefully!";
+        className = "result-high";
+        linksHigh.style.display = "block";
+      } else if(score > 40){
+        message = "You feel stuck. You want change, but fear is holding you back. Consider your finances and next steps.";
+        className = "result-medium";
+        linksMedium.style.display = "block";
+      } else {
+        message = "It may not be the right time yet. Focus on stability for now and improve your plan.";
+        className = "result-low";
+        linksLow.style.display = "block";
+      }
+
+      resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
+      resultDiv.className = className;
+
+      nextSteps.style.display = "block";
+      nextSteps.style.backgroundColor = window.getComputedStyle(resultDiv).backgroundColor;
+      nextSteps.scrollIntoView({behavior: 'smooth'});
+    });
+  </script>
 
 </body>
 </html>
