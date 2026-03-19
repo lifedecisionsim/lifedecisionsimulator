@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Should I Quit My Job? (Free Simulator)</title>
+  <meta name="description" content="Use this free simulator to see if you should quit your job. Enter your age, salary, expenses, job satisfaction, and stress level to get a realistic and emotional result.">
 
-  <!-- ✅ CSS Styling included -->
+  <!-- ✅ CSS Styling -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,7 +37,7 @@
       font-weight: bold;
     }
 
-    input[type="range"] {
+    input[type="range"], input[type="number"] {
       width: 80%;
       margin: 10px 0;
     }
@@ -83,6 +84,15 @@
   <p>Get a realistic simulation in just 60 seconds</p>
 
   <form id="form">
+    <label>Age</label><br>
+    <input type="number" name="age" min="18" max="70" value="30" required><br><br>
+
+    <label>Monthly Salary (€)</label><br>
+    <input type="number" name="salary" min="0" value="3000" required><br><br>
+
+    <label>Monthly Expenses (€)</label><br>
+    <input type="number" name="expenses" min="0" value="2000" required><br><br>
+
     <label>Job Satisfaction (1–10)</label><br>
     <input type="range" name="satisfaction" min="1" max="10" value="5">
     <span id="satisfactionValue" class="slider-value">5</span><br><br>
@@ -102,51 +112,54 @@
 
   <div id="result"></div>
 
-  <!-- ✅ JavaScript included -->
+  <!-- ✅ JavaScript -->
   <script>
     const form = document.getElementById("form");
     const resultDiv = document.getElementById("result");
 
-    // Sliders
     const satisfactionSlider = form.satisfaction;
     const satisfactionSpan = document.getElementById("satisfactionValue");
-
     const stressSlider = form.stress;
     const stressSpan = document.getElementById("stressValue");
 
-    // Update slider numbers live
+    // Live slider values
     satisfactionSlider.addEventListener("input", () => {
       satisfactionSpan.textContent = satisfactionSlider.value;
     });
-
     stressSlider.addEventListener("input", () => {
       stressSpan.textContent = stressSlider.value;
     });
 
-    // Handle form submission
+    // Handle simulation
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
+      const age = Number(form.age.value);
+      const salary = Number(form.salary.value);
+      const expenses = Number(form.expenses.value);
       const satisfaction = Number(satisfactionSlider.value);
       const stress = Number(stressSlider.value);
       const plan = form.plan.value === "yes";
 
-      // 🔹 Simple decision algorithm
+      // 🔹 Base score from job satisfaction & stress
       let score = (10 - satisfaction) * 5 + stress * 5;
+
+      // 🔹 Financial buffer: higher savings vs expenses = safer to quit
+      const monthsCovered = salary > 0 ? salary / expenses : 0;
+      if (monthsCovered >= 1.5) score += 10;  // extra confidence if surplus
       if (plan) score += 10; // having a plan increases readiness
       if (score > 100) score = 100;
 
       // 🔹 Emotional message
       let message = "";
       if (score > 70) {
-        message = "You’re mentally ready. Staying may hurt more than leaving.";
+        message = "You’re mentally ready. Staying may hurt more than leaving. Plan carefully but you have a good chance!";
       } else if (score > 40) {
-        message = "You feel stuck. You want change, but fear is holding you back.";
+        message = "You feel stuck. You want change, but fear is holding you back. Consider your finances and next steps.";
       } else {
-        message = "It may not be the right time yet. Focus on stability for now.";
+        message = "It may not be the right time yet. Focus on stability for now and improve your plan.";
       }
 
-      // 🔹 Display result
       resultDiv.innerHTML = `
         <h2>${score}% ready to quit</h2>
         <p>${message}</p>
