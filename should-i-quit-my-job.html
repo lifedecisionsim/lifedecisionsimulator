@@ -99,22 +99,16 @@
   <!-- Contextual Links -->
   <div id="next-steps">
     <h2>Recommended Next Steps</h2>
+
     <div id="links-consider">
-      <p>Thinking about quitting? Check these resources:</p>
+      <p>Thinking about quitting? Check this resource:</p>
       <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Use the Decision Matrix Tool to Evaluate Options</a></li>
-        <li><a href="https://www.lifedecisionsimulator.com/career-advice">Read Career Advice Articles</a></li>
+        <li><a href="https://www.lifedecisionsimulator.com/">Return to LifeDecisionSimulator Home</a></li>
       </ul>
     </div>
+
     <div id="links-stay">
-      <p>Not ready to quit yet? Explore ways to improve your job:</p>
-      <ul>
-        <li><a href="https://www.lifedecisionsimulator.com/career-advice">Read Career Advice Articles</a></li>
-        <li><a href="https://www.lifedecisionsimulator.com/decision-matrix">Try the Decision Matrix Tool</a></li>
-      </ul>
-    </div>
-    <div>
-      <p>More tools:</p>
+      <p>Not ready to quit yet? Explore this resource:</p>
       <ul>
         <li><a href="https://www.lifedecisionsimulator.com/">Return to LifeDecisionSimulator Home</a></li>
       </ul>
@@ -136,7 +130,6 @@
     satisfactionSlider.addEventListener("input", () => { satisfactionSpan.textContent = satisfactionSlider.value; });
     stressSlider.addEventListener("input", () => { stressSpan.textContent = stressSlider.value; });
 
-    // Simulation logic
     form.addEventListener("submit", function(e){
       e.preventDefault();
       const age = Number(form.age.value);
@@ -175,7 +168,6 @@
       resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
       resultDiv.className = className;
 
-      // Show contextual links matching result box
       nextSteps.style.display = "block";
       nextSteps.style.backgroundColor = window.getComputedStyle(resultDiv).backgroundColor;
       nextSteps.scrollIntoView({behavior: 'smooth'});
