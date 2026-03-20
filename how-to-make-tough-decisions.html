@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Make Tough Life Decisions Faster | Life Decision Simulator">
-  <meta name="description" content="Learn how to use the Life Decision Simulator to make tough life decisions quickly and confidently. Step-by-step guide + code examples included.">
-  <title>Make Tough Life Decisions Faster | Life Decision Simulator</title>
-  <!-- Link to existing site CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Make Tough Life Decisions Faster | Life Decision Simulator</title>
+<meta name="description" content="Learn how to use the Life Decision Simulator to make tough life decisions quickly and confidently. Step-by-step guide included.">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header h1 {
+  color: #2b8a3e;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #1a73e8;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.box {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.highlight {
+  background: #e0ffe0;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+canvas {
+  margin-top: 20px;
+}
+
+ul {
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+}
+</style>
+
 </head>
 <body>
 
@@ -17,82 +71,66 @@
   <h1>How to Make Tough Life Decisions Faster Using Our Simulator</h1>
 </header>
 
+<nav>
+<a href="index.html">Home</a>
+<a href="decision-matrix-life-choices.html">Decision Matrix</a>
+<a href="job-offer-decision-calculator.html">Job Offer Calculator</a>
+<a href="career-decision-calculator.html">Career Decision</a>
+</nav>
+
 <main>
-  <section>
-    <p>Making tough life decisions can feel overwhelming. Our <strong>Life Decision Simulator</strong> helps you weigh options, simulate outcomes, and choose the best path quickly.</p>
-  </section>
-<p>Some decisions feel impossible. For example, leaving a job can be stressful. Use our 
-<a href="should-i-quit-my-job.html">quit your job simulator</a> to see if you’re ready for the change.</p>
-  <section>
-    <h2>Step 1: Define Your Decision Options</h2>
-    <ul>
-      <li>Stay at current job</li>
-      <li>Switch to a new company</li>
-      <li>Start your own business</li>
-    </ul>
-  </section>
 
-  <section>
-    <h2>Step 2: Assign Values to Each Option</h2>
-    <p>Give each option a score (1–10) for each criterion:</p>
-    <pre><code>
-// Assign values for each option
-const options = [
-  { name: "Stay at current job", financial: 6, workLife: 8, growth: 5, satisfaction: 7 },
-  { name: "Switch to new company", financial: 8, workLife: 7, growth: 9, satisfaction: 8 },
-  { name: "Start own business", financial: 5, workLife: 6, growth: 10, satisfaction: 9 }
-];
-    </code></pre>
-  </section>
+<section>
+  <p>Making tough life decisions can feel overwhelming. Our <strong>Life Decision Simulator</strong> helps you weigh options, simulate outcomes, and choose the best path quickly.</p>
 
-  <section>
-    <h2>Step 3: Weight Your Criteria</h2>
-    <pre><code>
-// Define importance of each criterion
-const weights = { financial: 0.3, workLife: 0.2, growth: 0.3, satisfaction: 0.2 };
-    </code></pre>
-  </section>
+  <p class="highlight">
+  Some decisions feel impossible, like leaving a job. Try our 
+  <a href="should-i-quit-my-job.html">quit job simulator</a> to see if you’re ready for the change.
+  </p>
+</section>
 
-  <section>
-    <h2>Step 4 & 5: Calculate Scores and Simulate</h2>
-    <pre><code>
-// Calculate total score for one option
-function calculateTotal(option, weights) {
-  return option.financial * weights.financial +
-         option.workLife * weights.workLife +
-         option.growth * weights.growth +
-         option.satisfaction * weights.satisfaction;
-}
+<section>
+<h2>Step 1: Define Your Decision Options</h2>
+<div class="box">
+<ul>
+<li>Stay at current job</li>
+<li>Switch to a new company</li>
+<li>Start your own business</li>
+</ul>
+</div>
+</section>
 
-// Simulate the outcome for one option
-function simulate(option) {
-  let total = 0
-  for (let i = 0; i < 1000; i++) {
-    total += calculateTotal(option, weights) * Math.random()
-  }
-  return total / 1000
-}
+<section>
+<h2>Step 2: Assign Values to Each Option</h2>
+<div class="box">
+<p><strong>Example scoring (1–10 scale for each criterion):</strong></p>
+<ul>
+<li>Stay at current job → Financial: 6 | Work-Life Balance: 8 | Growth: 5 | Satisfaction: 7</li>
+<li>Switch to new company → Financial: 8 | Work-Life Balance: 7 | Growth: 9 | Satisfaction: 8</li>
+<li>Start own business → Financial: 5 | Work-Life Balance: 6 | Growth: 10 | Satisfaction: 9</li>
+</ul>
+</div>
+</section>
 
-// Run simulation for all options
-const results = options.map(option => {
-  return { name: option.name, score: simulate(option) }
-})
+<section>
+<h2>Step 3: Weight Your Criteria</h2>
+<div class="box">
+<p>Financial: 30% | Work-Life Balance: 20% | Growth: 30% | Satisfaction: 20%</p>
+</div>
+</section>
 
-// Display results in console
-console.log(results)
-    </code></pre>
-  </section>
+<section>
+<h2>Step 4 & 5: Simulate Outcomes</h2>
+<div class="box">
+<p>Each option is scored based on the criteria values and weights. We then run a simulation to account for uncertainty, giving a realistic expected score for each choice.</p>
+</div>
+</section>
 
-  <section>
-    <h2>Step 6: Make Your Decision</h2>
-    <p>Pick the option with the highest simulated score. Repeat simulations if needed for confidence.</p>
-  </section>
+<section>
+<h2>Step 6: Visualize Results</h2>
+<canvas id="decisionChart"></canvas>
 
-  <section>
-    <h2>Step 7: Visualize Results</h2>
-    <canvas id="decisionChart" width="600" height="400"></canvas>
-   <script>
-
+<script>
 const options = [
  { name: "Stay at current job", financial: 6, workLife: 8, growth: 5, satisfaction: 7 },
  { name: "Switch to new company", financial: 8, workLife: 7, growth: 9, satisfaction: 8 },
@@ -114,23 +152,17 @@ function calculateTotal(option){
 }
 
 function simulate(option){
-
  let total = 0;
-
  for(let i=0;i<1000;i++){
    total += calculateTotal(option) * Math.random();
  }
-
  return total / 1000;
-
 }
 
-const results = options.map(option => {
- return {
-  name: option.name,
-  score: simulate(option)
- };
-});
+const results = options.map(option => ({
+ name: option.name,
+ score: simulate(option)
+}));
 
 const labels = results.map(r => r.name);
 const scores = results.map(r => r.score);
@@ -149,20 +181,29 @@ new Chart(ctx,{
  options: {
   responsive: true,
   scales: {
-   y: {
-    beginAtZero: true
-   }
+   y: { beginAtZero: true }
   }
  }
 });
-
 </script>
-  </section>
+</section>
 
-  <section>
-    <h2>Conclusion</h2>
-    <p>Using the Life Decision Simulator, you can make faster, data-driven decisions, visualize outcomes, and increase confidence in your choices. Start simulating on our <a href="index.html">main simulator page</a>.</p>
-  </section>
+<section>
+<h2>Step 7: Make Your Decision</h2>
+<p>Pick the option with the highest simulated score. Repeat simulations if needed for more confidence. Explore more tools to refine your decision:</p>
+
+<ul>
+<li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
+<li><a href="job-offer-decision-calculator.html">Job Offer Decision Tool</a></li>
+<li><a href="decision-matrix-life-choices.html">Decision Matrix Overview</a></li>
+</ul>
+</section>
+
+<section>
+<h2>Conclusion</h2>
+<p>Using the Life Decision Simulator, you can make faster, data-driven decisions, visualize outcomes, and increase confidence in your choices. Start simulating on our <a href="index.html">main simulator page</a>.</p>
+</section>
+
 </main>
 
 <footer>
