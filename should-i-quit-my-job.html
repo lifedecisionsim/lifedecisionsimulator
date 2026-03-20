@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Should I Quit My Job? (Free Calculator & Simulator)</title>
-  <meta name="description" content="Use this free simulator to see if you should quit your job. Enter your age, salary, expenses, stress, and satisfaction to get a realistic result.">
+  <meta name="description" content="Should I quit my job? Use this free simulator to decide based on your stress, salary, and job satisfaction.">
 
   <style>
     body {
@@ -15,14 +15,8 @@
       color: #333;
     }
 
-    h1 {
-      text-align: center;
-      color: #2b8a3e;
-    }
-
-    p {
-      text-align: center;
-    }
+    h1 { text-align: center; color: #2b8a3e; }
+    p { text-align: center; }
 
     form {
       background: #fff;
@@ -32,9 +26,7 @@
       margin-top: 20px;
     }
 
-    label {
-      font-weight: bold;
-    }
+    label { font-weight: bold; }
 
     input[type="range"], input[type="number"] {
       width: 80%;
@@ -80,13 +72,13 @@
     #next-steps {
       margin-top: 30px;
       padding: 20px;
-      border-radius: 12px;
       display: none;
     }
 
     #next-steps ul {
       list-style: none;
       padding: 0;
+      text-align: left;
     }
 
     #next-steps li {
@@ -94,172 +86,170 @@
     }
 
     #next-steps a {
-      text-decoration: none;
       font-weight: bold;
       color: #1a73e8;
+      text-decoration: none;
     }
 
     #next-steps a:hover { text-decoration: underline; }
 
     hr { margin: 50px 0; }
-    h2, h3 { text-align: left; }
-    .seo-text { text-align: left; }
+
+    .seo-text {
+      text-align: left;
+    }
+
+    .seo-text h2, .seo-text h3 {
+      text-align: left;
+    }
   </style>
 </head>
 
 <body>
 
-  <h1>Should You Quit Your Job?</h1>
+<h1>Should You Quit Your Job?</h1>
 
-  <p><strong>Feeling stuck, stressed, or unsure about your future?</strong><br>
-  Use this free simulator to see if you're ready to quit your job.</p>
+<p><strong>Should I quit my job?</strong> If you're feeling stuck, stressed, or unhappy at work, this free simulator helps you decide based on your financial situation, stress level, and job satisfaction.</p>
 
-  <form id="form">
-    <label>Age</label><br>
-    <input type="number" name="age" value="30" required><br><br>
+<form id="form">
+  <label>Age</label><br>
+  <input type="number" name="age" value="30"><br><br>
 
-    <label>Monthly Salary (€)</label><br>
-    <input type="number" name="salary" value="3000" required><br><br>
+  <label>Monthly Salary (€)</label><br>
+  <input type="number" name="salary" value="3000"><br><br>
 
-    <label>Monthly Expenses (€)</label><br>
-    <input type="number" name="expenses" value="2000" required><br><br>
+  <label>Monthly Expenses (€)</label><br>
+  <input type="number" name="expenses" value="2000"><br><br>
 
-    <label>Job Satisfaction (1–10)</label><br>
-    <input type="range" name="satisfaction" min="1" max="10" value="5">
-    <span id="satisfactionValue" class="slider-value">5</span><br><br>
+  <label>Job Satisfaction (1–10)</label><br>
+  <input type="range" name="satisfaction" min="1" max="10" value="5">
+  <span id="satisfactionValue">5</span><br><br>
 
-    <label>Stress Level (1–10)</label><br>
-    <input type="range" name="stress" min="1" max="10" value="5">
-    <span id="stressValue" class="slider-value">5</span><br><br>
+  <label>Stress Level (1–10)</label><br>
+  <input type="range" name="stress" min="1" max="10" value="5">
+  <span id="stressValue">5</span><br><br>
 
-    <label>Do you have a plan after quitting?</label><br>
-    <select name="plan">
-      <option value="no">No plan</option>
-      <option value="yes">Yes, I have a plan</option>
-    </select>
+  <label>Do you have a plan after quitting?</label><br>
+  <select name="plan">
+    <option value="no">No plan</option>
+    <option value="yes">Yes, I have a plan</option>
+  </select>
 
-    <button type="submit">Simulate</button>
-  </form>
+  <button type="submit">Simulate</button>
+</form>
 
-  <div id="result"></div>
+<div id="result"></div>
 
-  <!-- Next steps links (appear based on outcome) -->
-  <div id="next-steps">
-    <!-- High readiness -->
-    <div id="high">
-      <ul>
-        <li><a href="should-i-quit-my-job-without-another-job.html">Quit without another job</a></li>
-        <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
-        <li><a href="life-decisions.html">Life Decisions Guide</a></li>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </div>
+<div id="next-steps">
 
-    <!-- Medium readiness -->
-    <div id="medium">
-      <ul>
-        <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
-        <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
-        <li><a href="job-offer-decision-calculator.html">Job Offer Calculator</a></li>
-        <li><a href="life-decisions.html">Life Decisions Guide</a></li>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </div>
-
-    <!-- Low readiness -->
-    <div id="low">
-      <ul>
-        <li><a href="how-to-make-tough-decisions.html">Improve Decision Skills</a></li>
-        <li><a href="job-offer-decision-calculator.html">Compare Job Offers</a></li>
-        <li><a href="life-decisions.html">Life Decisions Guide</a></li>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </div>
+  <div id="high">
+    <ul>
+      <li><a href="should-i-quit-my-job-without-another-job.html">Quit without another job</a></li>
+      <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
+      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
   </div>
 
-  <hr>
-
-  <div class="seo-text">
-    <h2>Should I Quit My Job? A Realistic Guide</h2>
-    <p>Deciding whether to quit your job is a major life decision. Many people feel stuck between financial stability and personal happiness. This free quit job calculator helps you evaluate your readiness based on real factors.</p>
-
-    <h3>When Should You Quit Your Job?</h3>
-    <p>If your stress is consistently high and your job satisfaction is low, it may be time to consider leaving. However, quitting without a plan can create financial pressure.</p>
-
-    <h3>Financial Considerations Before Quitting</h3>
-    <p>Your salary and monthly expenses play a critical role. If you have a financial buffer or a clear plan, your transition will be much safer.</p>
-
-    <h3>Should I Leave My Job or Stay?</h3>
-    <p>This job decision tool gives you a realistic perspective. While no calculator can decide for you, it helps you understand your situation more clearly.</p>
+  <div id="medium">
+    <ul>
+      <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
+      <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
+      <li><a href="job-offer-decision-calculator.html">Job Offer Calculator</a></li>
+      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
   </div>
 
-  <script>
-    const form = document.getElementById("form");
-    const resultDiv = document.getElementById("result");
+  <div id="low">
+    <ul>
+      <li><a href="how-to-make-tough-decisions.html">Improve Decision Skills</a></li>
+      <li><a href="job-offer-decision-calculator.html">Compare Job Offers</a></li>
+      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
 
-    const satisfactionSlider = form.satisfaction;
-    const satisfactionSpan = document.getElementById("satisfactionValue");
+</div>
 
-    const stressSlider = form.stress;
-    const stressSpan = document.getElementById("stressValue");
+<hr>
 
-    const high = document.getElementById("high");
-    const medium = document.getElementById("medium");
-    const low = document.getElementById("low");
-    const nextSteps = document.getElementById("next-steps");
+<div class="seo-text">
 
-    // Hide all outcome links by default
-    high.style.display = "none";
-    medium.style.display = "none";
-    low.style.display = "none";
+<h2>Should I Quit My Job? A Realistic Guide</h2>
 
-    satisfactionSlider.addEventListener("input", () => {
-      satisfactionSpan.textContent = satisfactionSlider.value;
-    });
+<p>Deciding whether to quit your job is a major life decision. Many people feel stuck between financial stability and personal happiness. This free quit job calculator helps you evaluate your readiness based on real factors.</p>
 
-    stressSlider.addEventListener("input", () => {
-      stressSpan.textContent = stressSlider.value;
-    });
+<h3>When Should You Quit Your Job?</h3>
+<p>If your stress is consistently high and your job satisfaction is low, it may be time to consider leaving. However, quitting without a plan can create financial pressure.</p>
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+<h3>Financial Considerations Before Quitting</h3>
+<p>Your salary and monthly expenses play a critical role. If you have a financial buffer or a clear plan, your transition will be much safer.</p>
 
-      const salary = Number(form.salary.value);
-      const expenses = Number(form.expenses.value);
-      const satisfaction = Number(satisfactionSlider.value);
-      const stress = Number(stressSlider.value);
-      const plan = form.plan.value === "yes";
+<h3>Should I Leave My Job or Stay?</h3>
+<p>This job decision tool gives you a realistic perspective. While no calculator can decide for you, it helps you understand your situation more clearly.</p>
 
-      let score = (10 - satisfaction) * 5 + stress * 5;
+<h3>Signs You Should Quit Your Job</h3>
+<p>Common signs include constant stress, lack of growth, burnout, and feeling stuck. If you recognize these patterns, it may be time to seriously consider a change.</p>
 
-      if (salary > expenses) score += 10;
-      if (plan) score += 10;
+</div>
 
-      if (score > 100) score = 100;
+<script>
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
 
-      let message = "";
-      high.style.display = "none";
-      medium.style.display = "none";
-      low.style.display = "none";
+const satisfactionSlider = form.satisfaction;
+const stressSlider = form.stress;
 
-      if (score > 70) {
-        message = "You’re mentally ready. Staying may hurt more than leaving.";
-        resultDiv.className = "result-high";
-        high.style.display = "block";
-      } else if (score > 40) {
-        message = "You feel stuck. You want change, but fear is holding you back.";
-        resultDiv.className = "result-medium";
-        medium.style.display = "block";
-      } else {
-        message = "It may not be the right time yet. Focus on stability.";
-        resultDiv.className = "result-low";
-        low.style.display = "block";
-      }
+const satisfactionSpan = document.getElementById("satisfactionValue");
+const stressSpan = document.getElementById("stressValue");
 
-      resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
-      nextSteps.style.display = "block";
-    });
-  </script>
+const high = document.getElementById("high");
+const medium = document.getElementById("medium");
+const low = document.getElementById("low");
+const nextSteps = document.getElementById("next-steps");
+
+high.style.display = "none";
+medium.style.display = "none";
+low.style.display = "none";
+
+satisfactionSlider.oninput = () => satisfactionSpan.textContent = satisfactionSlider.value;
+stressSlider.oninput = () => stressSpan.textContent = stressSlider.value;
+
+form.onsubmit = (e) => {
+  e.preventDefault();
+
+  let score = (10 - satisfactionSlider.value) * 5 + stressSlider.value * 5;
+
+  if (form.salary.value > form.expenses.value) score += 10;
+  if (form.plan.value === "yes") score += 10;
+
+  if (score > 100) score = 100;
+
+  high.style.display = "none";
+  medium.style.display = "none";
+  low.style.display = "none";
+
+  let message = "";
+
+  if (score > 70) {
+    resultDiv.className = "result-high";
+    high.style.display = "block";
+    message = "You’re mentally ready. Staying may hurt more than leaving.";
+  } else if (score > 40) {
+    resultDiv.className = "result-medium";
+    medium.style.display = "block";
+    message = "You feel stuck. You want change, but fear is holding you back.";
+  } else {
+    resultDiv.className = "result-low";
+    low.style.display = "block";
+    message = "It may not be the right time yet. Focus on stability.";
+  }
+
+  resultDiv.innerHTML = `<h2>${score}% ready to quit</h2><p>${message}</p>`;
+  nextSteps.style.display = "block";
+};
+</script>
 
 </body>
 </html>
