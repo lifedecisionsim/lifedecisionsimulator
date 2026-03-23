@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Should I Change Careers? (Free Calculator)</title>
+
+<meta name="description" content="Use this free career change calculator to decide if you should switch careers. Evaluate stress, satisfaction, growth, and financial stability.">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #2b8a3e;
+}
+
+p {
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"], input[type="number"] {
+  width: 80%;
+  margin: 10px 0;
+}
+
+span.slider-value {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+button {
+  background: #2b8a3e;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+button:hover {
+  background: #237032;
+}
+
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.green { background: #e0ffe0; }
+.orange { background: #fff4e0; }
+.red { background: #ffe0e0; }
+
+.links {
+  margin-top: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Should You Change Careers?</h1>
+
+<p>Use this free calculator to evaluate if a career change is the right move for you.</p>
+
+<form id="form">
+
+<label>Job Satisfaction (1–10)</label><br>
+<input type="range" name="satisfaction" min="1" max="10" value="5">
+<span id="satisfactionValue">5</span><br><br>
+
+<label>Stress Level (1–10)</label><br>
+<input type="range" name="stress" min="1" max="10" value="5">
+<span id="stressValue">5</span><br><br>
+
+<label>Career Growth Potential (1–10)</label><br>
+<input type="range" name="growth" min="1" max="10" value="5">
+<span id="growthValue">5</span><br><br>
+
+<label>Financial Stability (1–10)</label><br>
+<input type="range" name="financial" min="1" max="10" value="5">
+<span id="financialValue">5</span><br><br>
+
+<button type="submit">Simulate</button>
+
+</form>
+
+<div id="result"></div>
+
+<hr>
+
+<h2>Should You Change Careers?</h2>
+
+<p>Changing careers is a major decision. This tool helps you evaluate your current situation based on stress, satisfaction, growth, and financial stability.</p>
+
+<p>If you're also thinking about quitting your job, try our 
+<a href="should-i-quit-my-job.html">quit job simulator</a>.</p>
+
+<p>Or compare multiple options using our 
+<a href="decision-matrix-life-choices.html">decision matrix guide</a>.</p>
+
+<script>
+
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
+
+const sliders = ["satisfaction","stress","growth","financial"];
+
+sliders.forEach(name => {
+  const input = form[name];
+  const span = document.getElementById(name + "Value");
+
+  input.addEventListener("input", () => {
+    span.textContent = input.value;
+  });
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const s = Number(form.satisfaction.value);
+  const stress = Number(form.stress.value);
+  const growth = Number(form.growth.value);
+  const financial = Number(form.financial.value);
+
+  let score = (10 - s) * 4 + stress * 4 + (10 - growth) * 2 + (10 - financial) * 2;
+
+  if(score > 100) score = 100;
+
+  let message = "";
+  let color = "";
+
+  if(score > 70){
+    message = "A career change could significantly improve your situation. You may benefit from exploring new paths.";
+    color = "green";
+  } else if(score > 40){
+    message = "You feel uncertain. A career change might help, but planning is essential.";
+    color = "orange";
+  } else {
+    message = "Your current situation may still offer value. Consider improving your current role before switching.";
+    color = "red";
+  }
+
+  resultDiv.className = color;
+
+  resultDiv.innerHTML = `
+    <h2>${score}% readiness to change careers</h2>
+    <p>${message}</p>
+
+    <div class="links">
+      <p><strong>Next steps:</strong></p>
+      <a href="career-decision-calculator.html">Career Decision Tool</a><br>
+      <a href="job-offer-decision-calculator.html">Compare Job Offers</a><br>
+      <a href="how-to-make-tough-decisions.html">Decision Guide</a>
+    </div>
+  `;
+});
+
+</script>
+
+</body>
+</html>
