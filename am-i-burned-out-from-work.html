@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Am I Burned Out From Work? (Quick Self-Test)</title>
+
+<meta name="description" content="Take this quick burnout self-test to see if you are burned out from work. Identify stress, fatigue, and motivation levels in seconds.">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #c92a2a;
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 80%;
+}
+
+span {
+  font-weight: bold;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #c92a2a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Am I Burned Out From Work?</h1>
+
+<p style="text-align:center;">Answer honestly. This takes less than 30 seconds.</p>
+
+<form id="form">
+
+<label>Do you feel constantly tired?</label><br>
+<input type="range" name="q1" min="1" max="10" value="5">
+<span id="q1v">5</span><br><br>
+
+<label>Do you feel emotionally drained by work?</label><br>
+<input type="range" name="q2" min="1" max="10" value="5">
+<span id="q2v">5</span><br><br>
+
+<label>Do you struggle to stay motivated?</label><br>
+<input type="range" name="q3" min="1" max="10" value="5">
+<span id="q3v">5</span><br><br>
+
+<label>Do you feel detached from your job?</label><br>
+<input type="range" name="q4" min="1" max="10" value="5">
+<span id="q4v">5</span><br><br>
+
+<button type="submit">Check Result</button>
+
+</form>
+
+<div id="result"></div>
+
+<hr>
+
+<h2>Burnout Signs</h2>
+<p>Burnout often includes fatigue, low motivation, irritability, and reduced performance. If ignored, it can impact both your career and health.</p>
+
+<p>If burnout is making you question your job, try our 
+<a href="should-i-quit-my-job.html">quit job simulator</a>.</p>
+
+<script>
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
+
+["q1","q2","q3","q4"].forEach(q => {
+  const input = form[q];
+  const span = document.getElementById(q + "v");
+
+  input.addEventListener("input", () => {
+    span.textContent = input.value;
+  });
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const total =
+    Number(form.q1.value) +
+    Number(form.q2.value) +
+    Number(form.q3.value) +
+    Number(form.q4.value);
+
+  let message = "";
+
+  if(total > 30){
+    message = "You show strong signs of burnout. It may be time to make changes.";
+  } else if(total > 18){
+    message = "You may be experiencing moderate burnout. Pay attention to your stress.";
+  } else {
+    message = "Your burnout level seems low. Keep maintaining balance.";
+  }
+
+  resultDiv.innerHTML = `<h2>${message}</h2>
+  <p><a href="burnout-calculator.html">Try detailed burnout calculator</a></p>`;
+});
+</script>
+
+</body>
+</html>
