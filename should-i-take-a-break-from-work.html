@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Should I Take a Break From Work? (Free Self-Assessment)</title>
+
+<meta name="description" content="Not sure if you need a break from work? Use this free self-assessment to evaluate stress, burnout, and recovery needs in seconds.">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #495057;
+}
+
+p {
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 80%;
+  margin: 10px 0;
+}
+
+span {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+button {
+  background: #495057;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #343a40;
+}
+
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.green { background: #e0ffe0; }
+.orange { background: #fff4e0; }
+.red { background: #ffe0e0; }
+</style>
+
+</head>
+
+<body>
+
+<h1>Should You Take a Break From Work?</h1>
+
+<p>Feeling overwhelmed, tired, or mentally drained? This quick test helps you decide if you need a break.</p>
+
+<form id="form">
+
+<label>How mentally exhausted do you feel? (1–10)</label><br>
+<input type="range" name="exhaustion" min="1" max="10" value="5">
+<span id="exhaustionValue">5</span><br><br>
+
+<label>How stressed are you daily? (1–10)</label><br>
+<input type="range" name="stress" min="1" max="10" value="5">
+<span id="stressValue">5</span><br><br>
+
+<label>How motivated are you to work? (1–10)</label><br>
+<input type="range" name="motivation" min="1" max="10" value="5">
+<span id="motivationValue">5</span><br><br>
+
+<label>How well rested do you feel? (1–10)</label><br>
+<input type="range" name="rest" min="1" max="10" value="5">
+<span id="restValue">5</span><br><br>
+
+<button type="submit">Check Result</button>
+
+</form>
+
+<div id="result"></div>
+
+<hr>
+
+<h2>When Should You Take a Break From Work?</h2>
+
+<p>If you feel constantly tired, unmotivated, and stressed, your body and mind may be signaling that you need rest. Ignoring these signs can lead to burnout.</p>
+
+<p>Not sure if you're already burned out? Try our 
+<a href="burnout-calculator.html">burnout calculator</a>.</p>
+
+<p>Thinking about quitting instead? Use our 
+<a href="should-i-quit-my-job.html">quit job simulator</a>.</p>
+
+<script>
+
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
+
+const fields = ["exhaustion","stress","motivation","rest"];
+
+fields.forEach(name => {
+  const input = form[name];
+  const span = document.getElementById(name + "Value");
+
+  input.addEventListener("input", () => {
+    span.textContent = input.value;
+  });
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const exhaustion = Number(form.exhaustion.value);
+  const stress = Number(form.stress.value);
+  const motivation = Number(form.motivation.value);
+  const rest = Number(form.rest.value);
+
+  let score = exhaustion * 3 + stress * 3 + (10 - motivation) * 2 + (10 - rest) * 2;
+
+  if(score > 100) score = 100;
+
+  let message = "";
+  let color = "";
+
+  if(score > 70){
+    message = "You likely need a break. Rest and recovery should be a priority.";
+    color = "red";
+  } else if(score > 40){
+    message = "You may benefit from a short break to reset and recover.";
+    color = "orange";
+  } else {
+    message = "You seem relatively balanced, but regular breaks are still important.";
+    color = "green";
+  }
+
+  resultDiv.className = color;
+
+  resultDiv.innerHTML = `
+    <h2>${score}% need for a break</h2>
+    <p>${message}</p>
+    <p><strong>Next steps:</strong></p>
+    <a href="burnout-calculator.html">Burnout Calculator</a><br>
+    <a href="should-i-quit-my-job.html">Quit Job Tool</a>
+  `;
+});
+
+</script>
+
+</body>
+</html>
