@@ -8,29 +8,7 @@
 
 <meta name="description" content="Thinking about switching jobs for a higher salary? Use this free calculator to see if it’s really worth it based on stress, growth, and income.">
 
-<link rel="canonical" href="https://lifedecisionsimulator.com/should-i-change-jobs-for-a-higher-salary.html">
-
 <link rel="stylesheet" href="style.css">
-
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "Article",
-"headline": "Job Offer Decision Calculator",
-"author": {
-"@type": "Person",
-"name": "Life Decision Simulator"
-},
-"datePublished": "2026-03-01",
-"dateModified": "2026-03-01",
-"mainEntityOfPage": "https://lifedecisionsimulator.com/job-offer-decision-calculator.html",
-"publisher": {
-"@type": "Organization",
-"name": "Life Decision Simulator"
-},
-"description": "Evaluate salary, commute, stress, and growth when deciding whether to accept a job offer."
-}
-</script>
 
 </head>
 
@@ -40,121 +18,94 @@
 <a href="index.html">Home</a> |
 <a href="salary-calculator.html">Salary Calculator</a> |
 <a href="burnout-calculator.html">Burnout Calculator</a> |
-<a href="salary-growth.html#change-jobs">Change Jobs?</a> |
-<a href="salary-negotiation-guide.html#negotiation-tips">Negotiation Tips</a>
+<a href="career-decision-calculator.html">Career Decision</a>
 </nav>
 
-<header>
 <h1>Is Changing Jobs for More Money Worth It?</h1>
-</header>
-
-<main>
-
-<section>
 
 <p>
-Receiving a job offer can be exciting, but deciding whether to accept it is not always easy.
-Many people focus only on salary, but a smart career decision also considers work-life balance,
-commute time, career growth, and stress level.
+Wondering if changing jobs for a higher salary is worth it? This free calculator helps you evaluate whether a better-paying job will actually improve your life based on income, stress, and long-term growth. Many people assume more money means a better life, but that is not always the case.
 </p>
 
 <p>
-The <strong>Job Offer Decision Calculator</strong> helps you evaluate all these factors so you
-can make a more informed career choice.
+If you're unsure, use the calculator below to get a realistic answer in seconds.
 </p>
 
-<h2>Key Factors to Evaluate</h2>
+<hr>
 
-<ul>
-<li>Salary and compensation growth</li>
-<li>Commute time and flexibility</li>
-<li>Work-life balance</li>
-<li>Stress level and workload</li>
-<li>Career development opportunities</li>
-<li>Company culture and stability</li>
-</ul>
+<h2>Compare Your Job Options</h2>
 
-<h2>How to Use the Job Offer Decision Calculator</h2>
+<p>Rate each factor from 1 (low) to 10 (high):</p>
 
-<p>
-Start by comparing your current job with the new job offer. Enter your estimated salary,
-commute time, and personal priorities.
-</p>
+<form id="form">
 
-<p>
-Then evaluate how each factor affects your overall satisfaction and long-term career goals.
-</p>
+<label>Current Salary Satisfaction</label><br>
+<input type="range" name="salary" min="1" max="10" value="5"><br><br>
 
-<h2>When Accepting a Job Offer Makes Sense</h2>
+<label>Stress Level</label><br>
+<input type="range" name="stress" min="1" max="10" value="5"><br><br>
 
-<ul>
-<li>The new role offers meaningful career advancement</li>
-<li>The salary increase significantly improves your finances</li>
-<li>The company culture and leadership fit your values</li>
-<li>The position helps you develop valuable new skills</li>
-</ul>
+<label>Career Growth Opportunities</label><br>
+<input type="range" name="growth" min="1" max="10" value="5"><br><br>
 
-<h2>When You Should Think Twice</h2>
+<label>Work-Life Balance</label><br>
+<input type="range" name="balance" min="1" max="10" value="5"><br><br>
 
-<ul>
-<li>The salary increase is small but the stress is much higher</li>
-<li>The commute or schedule harms your work-life balance</li>
-<li>The company shows signs of instability</li>
-<li>The new role does not support your long-term career goals</li>
-</ul>
+<button type="submit">Calculate</button>
+
+</form>
+
+<div id="result"></div>
+
+<hr>
+
+<h2>When Is Changing Jobs for Money Worth It?</h2>
 
 <p>
-If you're still unsure, try our
-<a href="salary-growth.html">Salary Growth Calculator</a>
-to estimate how your income may evolve over time.
+A higher salary can improve your financial situation, but it may come with increased stress, longer hours, or reduced work-life balance. The best decision depends on your priorities and long-term goals.
 </p>
 
 <p>
-You can also read our
-<a href="salary-negotiation-guide.html">Step-by-Step Salary Negotiation Guide</a>
-to improve your offer before making a final decision.
+If your current job is causing stress or burnout, consider evaluating your situation carefully before making a move.
 </p>
 
-</section>
-<section>
-  <h2>People Also Ask About Changing Jobs</h2>
+<p>
+Feeling burned out? Try our 
+<a href="burnout-calculator.html">burnout calculator</a>.
+</p>
 
-  <div class="faq-item">
-    <h3>Is it worth switching jobs for a higher salary?</h3>
-    <p>Changing jobs for a higher salary can make sense if the long-term career growth and work environment also improve. Use our Career Decision Calculator to see the impact.</p>
-  </div>
+<p>
+Not sure if you need rest instead? Use our 
+<a href="should-i-take-a-break-from-work.html">break from work test</a>.
+</p>
 
-  <div class="faq-item">
-    <h3>How often should you change jobs?</h3>
-    <p>Most career experts recommend evaluating job changes every 2–4 years depending on skill growth, compensation, and personal goals.</p>
-  </div>
+<script>
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
 
-  <div class="faq-item">
-    <h3>When is the best time to change jobs?</h3>
-    <p>The best time is usually when you’ve gained significant skills, your salary growth is stagnating, or a better opportunity aligns with your career plan.</p>
-  </div>
+form.addEventListener("submit", function(e){
+ e.preventDefault();
 
-  <div class="faq-item">
-    <h3>Should I accept a lower salary for better work-life balance?</h3>
-    <p>Sometimes a small reduction in salary can be worth it if it significantly reduces stress and burnout risk. Use our Burnout Calculator to evaluate this.</p>
-  </div>
+ const salary = Number(form.salary.value);
+ const stress = Number(form.stress.value);
+ const growth = Number(form.growth.value);
+ const balance = Number(form.balance.value);
 
-  <div class="faq-item">
-    <h3>How do I compare multiple job offers?</h3>
-    <p>Use our Job Offer Decision Calculator to weigh factors like salary, growth, and work-life balance, helping you make the best choice.</p>
-  </div>
-</section>
+ let score = salary * 3 + growth * 2 + balance * 2 - stress * 2;
 
-</main>
-<h2>Related Career Decision Tools</h2>
+ let message = "";
 
-<ul>
-<li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
-<li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
-<li><a href="salary-calculator.html">Salary Projection Calculator</a></li>
-<li><a href="burnout-calculator.html">Burnout Risk Calculator</a></li>
-<li><a href="salary-growth.html">Plan Your Salary Growth Over 5 Years</a></li>
-</ul>
+ if(score > 60){
+   message = "Changing jobs for a higher salary could be a good decision for you.";
+ } else if(score > 40){
+   message = "It depends. Consider both financial and personal factors carefully.";
+ } else {
+   message = "A higher salary alone may not improve your situation.";
+ }
+
+ resultDiv.innerHTML = `<h3>${message}</h3>`;
+});
+</script>
 
 <footer>
 <p>© 2026 Life Decision Simulator</p>
