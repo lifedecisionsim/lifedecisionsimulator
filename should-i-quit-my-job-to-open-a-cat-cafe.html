@@ -14,21 +14,59 @@
 
 <style>
 
+.simulator-box{
+max-width: 700px;
+margin: auto;
+padding: 20px;
+background: #ffffff;
+border-radius: 12px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.slider-group{
+margin-bottom: 30px;
+}
+
+.slider-value{
+font-size: 18px;
+font-weight: bold;
+margin-top: 8px;
+color: #0077cc;
+}
+
+.range-labels{
+display: flex;
+justify-content: space-between;
+font-size: 13px;
+margin-top: 5px;
+color: #666;
+}
+
 input[type="range"]{
-width: 300px;
+width: 100%;
+accent-color: #0077cc;
+cursor: pointer;
 }
 
 button{
-padding: 10px 20px;
+background: #0077cc;
+color: white;
+border: none;
+padding: 12px 24px;
 font-size: 16px;
+border-radius: 8px;
 cursor: pointer;
-margin-top: 10px;
+}
+
+button:hover{
+opacity: 0.9;
 }
 
 #result{
 margin-top: 30px;
 padding: 20px;
-background: #f4f4f4;
+background: #f4f8fb;
+border-left: 5px solid #0077cc;
 border-radius: 10px;
 }
 
@@ -45,6 +83,8 @@ border-radius: 10px;
 <a href="should-i-quit-my-job.html">Quit Job Test</a>
 </nav>
 
+<div class="simulator-box">
+
 <h1>Should I Quit My Job to Open a Cat Café?</h1>
 
 <p>
@@ -53,7 +93,7 @@ Have you ever stared at your screen during a meeting and thought:
 </p>
 
 <p>
-This simulator analyzes your stress, love for cats, and emotional attachment to corporate life to determine your destiny.
+This simulator analyzes your burnout, love for cats, emotional exhaustion, and desire to escape corporate life.
 </p>
 
 <hr>
@@ -62,11 +102,9 @@ This simulator analyzes your stress, love for cats, and emotional attachment to 
 
 <form id="form">
 
-<label>
-How burned out are you?
-<span id="burnoutValue">5</span>
-</label>
-<br>
+<div class="slider-group">
+
+<label>How burned out are you?</label>
 
 <input
 type="range"
@@ -77,13 +115,21 @@ value="5"
 oninput="document.getElementById('burnoutValue').innerText = this.value"
 >
 
-<br><br>
+<div class="range-labels">
+<span>1</span>
+<span>10</span>
+</div>
 
-<label>
-How much do you dislike corporate meetings?
-<span id="meetingsValue">5</span>
-</label>
-<br>
+<div class="slider-value">
+Current Value:
+<span id="burnoutValue">5</span>
+</div>
+
+</div>
+
+<div class="slider-group">
+
+<label>How much do you dislike corporate meetings?</label>
 
 <input
 type="range"
@@ -94,13 +140,21 @@ value="5"
 oninput="document.getElementById('meetingsValue').innerText = this.value"
 >
 
-<br><br>
+<div class="range-labels">
+<span>1</span>
+<span>10</span>
+</div>
 
-<label>
-How much do cats improve your happiness?
-<span id="catsValue">5</span>
-</label>
-<br>
+<div class="slider-value">
+Current Value:
+<span id="meetingsValue">5</span>
+</div>
+
+</div>
+
+<div class="slider-group">
+
+<label>How much do cats improve your happiness?</label>
 
 <input
 type="range"
@@ -111,13 +165,21 @@ value="5"
 oninput="document.getElementById('catsValue').innerText = this.value"
 >
 
-<br><br>
+<div class="range-labels">
+<span>1</span>
+<span>10</span>
+</div>
 
-<label>
-How much do you value financial stability?
-<span id="moneyValue">5</span>
-</label>
-<br>
+<div class="slider-value">
+Current Value:
+<span id="catsValue">5</span>
+</div>
+
+</div>
+
+<div class="slider-group">
+
+<label>How much do you value financial stability?</label>
 
 <input
 type="range"
@@ -128,13 +190,21 @@ value="5"
 oninput="document.getElementById('moneyValue').innerText = this.value"
 >
 
-<br><br>
+<div class="range-labels">
+<span>1</span>
+<span>10</span>
+</div>
 
-<label>
-How often do you daydream about escaping your current life?
-<span id="escapeValue">5</span>
-</label>
-<br>
+<div class="slider-value">
+Current Value:
+<span id="moneyValue">5</span>
+</div>
+
+</div>
+
+<div class="slider-group">
+
+<label>How often do you daydream about escaping your current life?</label>
 
 <input
 type="range"
@@ -145,7 +215,17 @@ value="5"
 oninput="document.getElementById('escapeValue').innerText = this.value"
 >
 
-<br><br>
+<div class="range-labels">
+<span>1</span>
+<span>10</span>
+</div>
+
+<div class="slider-value">
+Current Value:
+<span id="escapeValue">5</span>
+</div>
+
+</div>
 
 <button type="submit">Simulate My Fate</button>
 
@@ -158,8 +238,8 @@ oninput="document.getElementById('escapeValue').innerText = this.value"
 <h2>Can a Cat Café Actually Make You Happier?</h2>
 
 <p>
-Sometimes people do not truly want to open a cat café.
-They simply want peace, freedom, slower living, and a life that feels meaningful again.
+Sometimes people do not really want a cat café.
+They simply want peace, freedom, slower living, and emotional recovery.
 </p>
 
 <p>
@@ -167,6 +247,8 @@ Feeling burned out for real?
 Try our
 <a href="burnout-signs.html">burnout symptoms guide</a>.
 </p>
+
+</div>
 
 <script>
 
