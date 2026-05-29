@@ -1,5 +1,18 @@
+```json
 {
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "lifedecisionsimulator.com"
+        }
+      ],
+      "destination": "https://www.lifedecisionsimulator.com/$1",
+      "permanent": true
+    },
+
     {
       "source": "/should-i-change-jobs-for-higher-salary.html",
       "destination": "/should-i-change-jobs-for-a-higher-salary.html",
@@ -7,3 +20,4 @@
     }
   ]
 }
+```
