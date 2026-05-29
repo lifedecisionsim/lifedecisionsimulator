@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Should I Quit My Job to Open a Cat Café?</title>
+
+<meta name="description" content="Take this funny but surprisingly accurate simulator to find out if quitting your job to open a cat café is actually your destiny.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a> |
+<a href="burnout-calculator.html">Burnout Calculator</a> |
+<a href="should-i-take-a-break-from-work.html">Break From Work</a> |
+<a href="should-i-quit-my-job.html">Quit Job Test</a>
+</nav>
+
+<h1>Should I Quit My Job to Open a Cat Café?</h1>
+
+<p>
+Have you ever stared at your screen during a meeting and thought:
+<strong>"What if I just disappeared and opened a peaceful cat café somewhere?"</strong>
+</p>
+
+<p>
+This simulator analyzes your stress, motivation, love for cats, and emotional attachment to corporate life to determine whether you should:
+</p>
+
+<ul>
+<li>Stay in your current job</li>
+<li>Take a break</li>
+<li>Start planning your cat café immediately</li>
+</ul>
+
+<hr>
+
+<h2>Cat Café Life Simulator</h2>
+
+<form id="form">
+
+<label>How burned out are you? (1–10)</label><br>
+<input type="range" name="burnout" min="1" max="10" value="5"><br><br>
+
+<label>How much do you dislike corporate meetings? (1–10)</label><br>
+<input type="range" name="meetings" min="1" max="10" value="5"><br><br>
+
+<label>How much do cats improve your happiness? (1–10)</label><br>
+<input type="range" name="cats" min="1" max="10" value="5"><br><br>
+
+<label>How much do you value financial stability? (1–10)</label><br>
+<input type="range" name="money" min="1" max="10" value="5"><br><br>
+
+<label>How often do you daydream about escaping your current life? (1–10)</label><br>
+<input type="range" name="escape" min="1" max="10" value="5"><br><br>
+
+<button type="submit">Simulate My Fate</button>
+
+</form>
+
+<div id="result"></div>
+
+<hr>
+
+<h2>Can a Cat Café Actually Make You Happier?</h2>
+
+<p>
+Sometimes people do not actually want to open a cat café. They simply want peace, freedom, slower living, and a life that feels more meaningful.
+</p>
+
+<p>
+This simulator is humorous, but it reflects something real:
+many people feel emotionally exhausted and dream about a completely different lifestyle.
+</p>
+
+<p>
+Feeling burned out for real? Try our 
+<a href="burnout-signs.html">burnout symptoms guide</a>.
+</p>
+
+<script>
+
+const form = document.getElementById("form");
+const resultDiv = document.getElementById("result");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const burnout = Number(form.burnout.value);
+const meetings = Number(form.meetings.value);
+const cats = Number(form.cats.value);
+const money = Number(form.money.value);
+const escape = Number(form.escape.value);
+
+let score = burnout * 3 +
+            meetings * 2 +
+            cats * 3 +
+            escape * 3 -
+            money * 2;
+
+let result = "";
+
+if(score >= 70){
+
+result = `
+<h3>
+🐱 You are spiritually already living inside a cat café.
+</h3>
+
+<p>
+Your soul has left corporate life emotionally.
+You may not literally need a cat café, but you definitely need change.
+</p>
+`;
+
+}
+
+else if(score >= 45){
+
+result = `
+<h3>
+☕ You probably need rest more than a business loan.
+</h3>
+
+<p>
+You are clearly tired, but maybe do not quit everything tomorrow.
+Take a break first and reassess.
+</p>
+`;
+
+}
+
+else{
+
+result = `
+<h3>
+💼 Surprisingly, you are still relatively attached to stability.
+</h3>
+
+<p>
+You may enjoy the fantasy of escape more than the reality.
+For now, keep the cat café as a dream.
+</p>
+`;
+
+}
+
+resultDiv.innerHTML = result;
+
+});
+
+</script>
+
+<footer>
+
+<p>© 2026 Life Decision Simulator</p>
+
+</footer>
+
+</body>
+</html>
