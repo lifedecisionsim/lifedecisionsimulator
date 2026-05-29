@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -15,59 +16,58 @@
 <style>
 
 .simulator-box{
-max-width: 700px;
-margin: auto;
-padding: 20px;
-background: #ffffff;
-border-radius: 12px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+max-width:700px;
+margin:40px auto;
+padding:25px;
+background:#ffffff;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .slider-group{
-margin-bottom: 30px;
+margin-bottom:30px;
 }
 
 .slider-value{
-font-size: 18px;
-font-weight: bold;
-margin-top: 8px;
-color: #0077cc;
+margin-top:8px;
+font-weight:bold;
+color:#0077cc;
 }
 
 .range-labels{
-display: flex;
-justify-content: space-between;
-font-size: 13px;
-margin-top: 5px;
-color: #666;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#666;
+margin-top:5px;
 }
 
 input[type="range"]{
-width: 100%;
-accent-color: #0077cc;
-cursor: pointer;
+width:100%;
+accent-color:#0077cc;
+cursor:pointer;
 }
 
 button{
-background: #0077cc;
-color: white;
-border: none;
-padding: 12px 24px;
-font-size: 16px;
-border-radius: 8px;
-cursor: pointer;
+background:#0077cc;
+color:white;
+border:none;
+padding:12px 24px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
 }
 
 button:hover{
-opacity: 0.9;
+opacity:0.9;
 }
 
 #result{
-margin-top: 30px;
-padding: 20px;
-background: #f4f8fb;
-border-left: 5px solid #0077cc;
-border-radius: 10px;
+margin-top:30px;
+padding:20px;
+background:#f4f8fb;
+border-left:5px solid #0077cc;
+border-radius:10px;
 }
 
 </style>
@@ -89,11 +89,11 @@ border-radius: 10px;
 
 <p>
 Have you ever stared at your screen during a meeting and thought:
-<strong>"What if I just disappeared and opened a peaceful cat café somewhere?"</strong>
+<strong>"What if I disappeared and opened a peaceful cat café?"</strong>
 </p>
 
 <p>
-This simulator analyzes your burnout, love for cats, emotional exhaustion, and desire to escape corporate life.
+This simulator analyzes your burnout, emotional exhaustion, love for cats, and desire to escape corporate life.
 </p>
 
 <hr>
@@ -104,15 +104,17 @@ This simulator analyzes your burnout, love for cats, emotional exhaustion, and d
 
 <div class="slider-group">
 
-<label>How burned out are you?</label>
+<label for="burnout">
+How burned out are you?
+</label>
 
 <input
 type="range"
+id="burnout"
 name="burnout"
 min="1"
 max="10"
 value="5"
-oninput="document.getElementById('burnoutValue').innerText = this.value"
 >
 
 <div class="range-labels">
@@ -129,15 +131,17 @@ Current Value:
 
 <div class="slider-group">
 
-<label>How much do you dislike corporate meetings?</label>
+<label for="meetings">
+How much do you dislike corporate meetings?
+</label>
 
 <input
 type="range"
+id="meetings"
 name="meetings"
 min="1"
 max="10"
 value="5"
-oninput="document.getElementById('meetingsValue').innerText = this.value"
 >
 
 <div class="range-labels">
@@ -154,15 +158,17 @@ Current Value:
 
 <div class="slider-group">
 
-<label>How much do cats improve your happiness?</label>
+<label for="cats">
+How much do cats improve your happiness?
+</label>
 
 <input
 type="range"
+id="cats"
 name="cats"
 min="1"
 max="10"
 value="5"
-oninput="document.getElementById('catsValue').innerText = this.value"
 >
 
 <div class="range-labels">
@@ -179,15 +185,17 @@ Current Value:
 
 <div class="slider-group">
 
-<label>How much do you value financial stability?</label>
+<label for="money">
+How much do you value financial stability?
+</label>
 
 <input
 type="range"
+id="money"
 name="money"
 min="1"
 max="10"
 value="5"
-oninput="document.getElementById('moneyValue').innerText = this.value"
 >
 
 <div class="range-labels">
@@ -204,15 +212,17 @@ Current Value:
 
 <div class="slider-group">
 
-<label>How often do you daydream about escaping your current life?</label>
+<label for="escape">
+How often do you daydream about escaping your current life?
+</label>
 
 <input
 type="range"
+id="escape"
 name="escape"
 min="1"
 max="10"
 value="5"
-oninput="document.getElementById('escapeValue').innerText = this.value"
 >
 
 <div class="range-labels">
@@ -238,7 +248,7 @@ Current Value:
 <h2>Can a Cat Café Actually Make You Happier?</h2>
 
 <p>
-Sometimes people do not really want a cat café.
+Sometimes people do not truly want a cat café.
 They simply want peace, freedom, slower living, and emotional recovery.
 </p>
 
@@ -252,6 +262,32 @@ Try our
 
 <script>
 
+const burnoutSlider = document.getElementById("burnout");
+const meetingsSlider = document.getElementById("meetings");
+const catsSlider = document.getElementById("cats");
+const moneySlider = document.getElementById("money");
+const escapeSlider = document.getElementById("escape");
+
+burnoutSlider.addEventListener("input", function() {
+document.getElementById("burnoutValue").innerText = this.value;
+});
+
+meetingsSlider.addEventListener("input", function() {
+document.getElementById("meetingsValue").innerText = this.value;
+});
+
+catsSlider.addEventListener("input", function() {
+document.getElementById("catsValue").innerText = this.value;
+});
+
+moneySlider.addEventListener("input", function() {
+document.getElementById("moneyValue").innerText = this.value;
+});
+
+escapeSlider.addEventListener("input", function() {
+document.getElementById("escapeValue").innerText = this.value;
+});
+
 const form = document.getElementById("form");
 const resultDiv = document.getElementById("result");
 
@@ -259,11 +295,11 @@ form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const burnout = Number(form.burnout.value);
-const meetings = Number(form.meetings.value);
-const cats = Number(form.cats.value);
-const money = Number(form.money.value);
-const escape = Number(form.escape.value);
+const burnout = Number(burnoutSlider.value);
+const meetings = Number(meetingsSlider.value);
+const cats = Number(catsSlider.value);
+const money = Number(moneySlider.value);
+const escape = Number(escapeSlider.value);
 
 let score =
 burnout * 3 +
@@ -326,5 +362,6 @@ resultDiv.innerHTML = result;
 </footer>
 
 </body>
+
 </html>
 ```
