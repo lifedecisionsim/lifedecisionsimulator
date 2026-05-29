@@ -1,6 +1,8 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,6 +11,28 @@
 <meta name="description" content="Take this funny but surprisingly accurate simulator to find out if quitting your job to open a cat café is actually your destiny.">
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+input[type="range"]{
+width: 300px;
+}
+
+button{
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+#result{
+margin-top: 30px;
+padding: 20px;
+background: #f4f4f4;
+border-radius: 10px;
+}
+
+</style>
 
 </head>
 
@@ -29,14 +53,8 @@ Have you ever stared at your screen during a meeting and thought:
 </p>
 
 <p>
-This simulator analyzes your stress, motivation, love for cats, and emotional attachment to corporate life to determine whether you should:
+This simulator analyzes your stress, love for cats, and emotional attachment to corporate life to determine your destiny.
 </p>
-
-<ul>
-<li>Stay in your current job</li>
-<li>Take a break</li>
-<li>Start planning your cat café immediately</li>
-</ul>
 
 <hr>
 
@@ -44,20 +62,90 @@ This simulator analyzes your stress, motivation, love for cats, and emotional at
 
 <form id="form">
 
-<label>How burned out are you? (1–10)</label><br>
-<input type="range" name="burnout" min="1" max="10" value="5"><br><br>
+<label>
+How burned out are you?
+<span id="burnoutValue">5</span>
+</label>
+<br>
 
-<label>How much do you dislike corporate meetings? (1–10)</label><br>
-<input type="range" name="meetings" min="1" max="10" value="5"><br><br>
+<input
+type="range"
+name="burnout"
+min="1"
+max="10"
+value="5"
+oninput="document.getElementById('burnoutValue').innerText = this.value"
+>
 
-<label>How much do cats improve your happiness? (1–10)</label><br>
-<input type="range" name="cats" min="1" max="10" value="5"><br><br>
+<br><br>
 
-<label>How much do you value financial stability? (1–10)</label><br>
-<input type="range" name="money" min="1" max="10" value="5"><br><br>
+<label>
+How much do you dislike corporate meetings?
+<span id="meetingsValue">5</span>
+</label>
+<br>
 
-<label>How often do you daydream about escaping your current life? (1–10)</label><br>
-<input type="range" name="escape" min="1" max="10" value="5"><br><br>
+<input
+type="range"
+name="meetings"
+min="1"
+max="10"
+value="5"
+oninput="document.getElementById('meetingsValue').innerText = this.value"
+>
+
+<br><br>
+
+<label>
+How much do cats improve your happiness?
+<span id="catsValue">5</span>
+</label>
+<br>
+
+<input
+type="range"
+name="cats"
+min="1"
+max="10"
+value="5"
+oninput="document.getElementById('catsValue').innerText = this.value"
+>
+
+<br><br>
+
+<label>
+How much do you value financial stability?
+<span id="moneyValue">5</span>
+</label>
+<br>
+
+<input
+type="range"
+name="money"
+min="1"
+max="10"
+value="5"
+oninput="document.getElementById('moneyValue').innerText = this.value"
+>
+
+<br><br>
+
+<label>
+How often do you daydream about escaping your current life?
+<span id="escapeValue">5</span>
+</label>
+<br>
+
+<input
+type="range"
+name="escape"
+min="1"
+max="10"
+value="5"
+oninput="document.getElementById('escapeValue').innerText = this.value"
+>
+
+<br><br>
 
 <button type="submit">Simulate My Fate</button>
 
@@ -70,16 +158,13 @@ This simulator analyzes your stress, motivation, love for cats, and emotional at
 <h2>Can a Cat Café Actually Make You Happier?</h2>
 
 <p>
-Sometimes people do not actually want to open a cat café. They simply want peace, freedom, slower living, and a life that feels more meaningful.
+Sometimes people do not truly want to open a cat café.
+They simply want peace, freedom, slower living, and a life that feels meaningful again.
 </p>
 
 <p>
-This simulator is humorous, but it reflects something real:
-many people feel emotionally exhausted and dream about a completely different lifestyle.
-</p>
-
-<p>
-Feeling burned out for real? Try our 
+Feeling burned out for real?
+Try our
 <a href="burnout-signs.html">burnout symptoms guide</a>.
 </p>
 
@@ -98,24 +183,23 @@ const cats = Number(form.cats.value);
 const money = Number(form.money.value);
 const escape = Number(form.escape.value);
 
-let score = burnout * 3 +
-            meetings * 2 +
-            cats * 3 +
-            escape * 3 -
-            money * 2;
+let score =
+burnout * 3 +
+meetings * 2 +
+cats * 3 +
+escape * 3 -
+money * 2;
 
 let result = "";
 
 if(score >= 70){
 
 result = `
-<h3>
-🐱 You are spiritually already living inside a cat café.
-</h3>
+<h3>🐱 You are spiritually already living inside a cat café.</h3>
 
 <p>
-Your soul has left corporate life emotionally.
-You may not literally need a cat café, but you definitely need change.
+Your soul has emotionally left corporate life.
+You probably need change more than another meeting.
 </p>
 `;
 
@@ -124,12 +208,10 @@ You may not literally need a cat café, but you definitely need change.
 else if(score >= 45){
 
 result = `
-<h3>
-☕ You probably need rest more than a business loan.
-</h3>
+<h3>☕ You probably need rest more than a business loan.</h3>
 
 <p>
-You are clearly tired, but maybe do not quit everything tomorrow.
+You are clearly exhausted, but maybe do not quit everything tomorrow.
 Take a break first and reassess.
 </p>
 `;
@@ -139,13 +221,11 @@ Take a break first and reassess.
 else{
 
 result = `
-<h3>
-💼 Surprisingly, you are still relatively attached to stability.
-</h3>
+<h3>💼 Surprisingly, you are still attached to stability.</h3>
 
 <p>
 You may enjoy the fantasy of escape more than the reality.
-For now, keep the cat café as a dream.
+For now, keep the cat café dream alive.
 </p>
 `;
 
@@ -165,3 +245,4 @@ resultDiv.innerHTML = result;
 
 </body>
 </html>
+```
