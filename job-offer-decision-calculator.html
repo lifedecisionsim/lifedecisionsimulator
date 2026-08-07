@@ -2,676 +2,874 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Job Offer Decision Calculator – Should You Accept?</title>
+<title>Job Offer Decision Calculator – Should You Accept?</title>
 
-  <meta name="description" content="Compare a job offer based on salary, career growth, work-life balance, job security, culture, commute and personal priorities. Use our free Job Offer Decision Calculator to make a clearer decision.">
+<meta name="description" content="Should you accept a job offer? Use our free Job Offer Decision Calculator to compare salary, career growth, work-life balance, job security, company culture and personal fit.">
 
-  <link rel="canonical" href="https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html">
+<link rel="canonical" href="https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html">
 
-  <meta property="og:title" content="Job Offer Decision Calculator – Should You Accept?">
-  <meta property="og:description" content="Not sure whether to accept a job offer? Compare salary, growth, work-life balance, security and other factors with our free decision calculator.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html">
-```html
 <style>
-  * {
+
+* {
     box-sizing: border-box;
-  }
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
+body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #222222;
-    line-height: 1.65;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+}
 
-  a {
-    color: #333333;
-    text-decoration: underline;
-  }
+a {
+    color: #1f4f7a;
+}
 
-  a:hover {
-    color: #666666;
-  }
+a:hover {
+    color: #163b5c;
+}
 
-  .container {
+.container {
     width: 92%;
     max-width: 850px;
     margin: 0 auto;
-  }
+}
 
-  header {
-    text-align: center;
-    padding: 48px 20px 25px;
-  }
+/* NAVIGATION */
 
-  header h1 {
-    margin: 0 0 14px;
-    font-size: 2.25rem;
-    line-height: 1.2;
-    color: #111111;
-  }
-
-  header p {
-    max-width: 700px;
+nav {
+    width: 92%;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 18px 0;
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+}
+
+nav a {
+    margin-right: 18px;
+    text-decoration: none;
+    color: #333333;
+}
+
+/* HEADER */
+
+header {
+    padding: 38px 0 25px;
+}
+
+h1 {
+    margin: 0 0 15px;
+    font-size: 34px;
+    line-height: 1.25;
+    color: #222222;
+}
+
+.intro {
+    margin: 0;
     color: #555555;
-    font-size: 1.02rem;
-  }
+    font-size: 17px;
+}
 
-  .card {
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 10px;
-    padding: 30px;
-    margin: 24px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
+/* DIVIDERS */
 
-  .calculator-card {
-    border-top: 3px solid #222222;
-  }
+.divider {
+    border: 0;
+    border-top: 1px solid #dddddd;
+    margin: 28px 0;
+}
 
-  .card h2 {
-    margin-top: 0;
+/* HEADINGS */
+
+h2 {
+    margin-top: 35px;
     margin-bottom: 15px;
-    color: #111111;
-    font-size: 1.5rem;
+    font-size: 25px;
     line-height: 1.3;
-  }
+    color: #222222;
+}
 
-  .intro {
+h3 {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-size: 19px;
+    color: #222222;
+}
+
+/* CALCULATOR */
+
+.calculator {
+    margin-top: 25px;
+}
+
+.calculator-intro {
     color: #555555;
-    margin-bottom: 28px;
-  }
+    margin-bottom: 30px;
+}
 
-  .factor {
-    margin: 25px 0;
+.factor {
+    margin: 27px 0;
     padding-bottom: 22px;
     border-bottom: 1px solid #eeeeee;
-  }
+}
 
-  .factor:last-child {
+.factor:last-of-type {
     border-bottom: none;
-  }
+}
 
-  .factor-header {
+.factor-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 7px;
-  }
+    gap: 15px;
+}
 
-  .factor-title {
-    font-weight: 700;
-    font-size: 1.04rem;
+.factor-name {
+    font-weight: bold;
     color: #222222;
-  }
+}
 
-  .factor-value {
-    min-width: 42px;
-    padding: 3px 8px;
+.factor-value {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1f4f7a;
+    min-width: 28px;
     text-align: center;
-    border: 1px solid #d8d8d8;
-    border-radius: 6px;
-    background: #fafafa;
-    color: #222222;
-    font-weight: 700;
-  }
+}
 
-  .factor-description {
-    margin: 0 0 11px;
+.factor-description {
+    margin: 5px 0 10px;
     color: #666666;
-    font-size: 0.92rem;
-  }
+    font-size: 14px;
+}
 
-  input[type="range"] {
+/* SLIDERS */
+
+input[type="range"] {
     width: 100%;
+    margin: 7px 0;
     cursor: pointer;
-    accent-color: #333333;
-  }
+    accent-color: #1f4f7a;
+}
 
-  .scale {
+.scale {
     display: flex;
     justify-content: space-between;
-    margin-top: 4px;
     color: #888888;
-    font-size: 0.78rem;
-  }
+    font-size: 12px;
+}
 
-  .calculate-btn {
-    display: block;
+/* BUTTON */
+
+button {
     width: 100%;
-    margin-top: 15px;
-    padding: 14px 20px;
-    border: 1px solid #222222;
-    border-radius: 7px;
-    background: #222222;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 700;
+    margin-top: 12px;
+    padding: 13px 18px;
+    border: none;
+    background: #1f4f7a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
+}
 
-  .calculate-btn:hover {
-    background: #444444;
-    transform: translateY(-1px);
-  }
+button:hover {
+    background: #163b5c;
+}
 
-  .result {
+/* RESULT */
+
+.result {
     display: none;
-    margin-top: 28px;
-    padding: 27px;
-    border: 1px solid #dddddd;
-    border-radius: 9px;
-    background: #fafafa;
+    margin-top: 30px;
+    padding: 25px 20px;
+    border-top: 2px solid #1f4f7a;
+    border-bottom: 1px solid #dddddd;
     text-align: center;
-  }
+}
 
-  .result.visible {
+.result.show {
     display: block;
-  }
+}
 
-  .score {
+.result-heading {
+    font-size: 14px;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.score {
+    margin: 5px 0;
+    font-size: 46px;
+    font-weight: bold;
+    color: #1f4f7a;
+}
+
+.verdict {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.result-text {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #555555;
+}
+
+.note {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #777777;
+}
+
+/* RELATED LINKS */
+
+.related-links {
+    margin-top: 20px;
+}
+
+.related-links p {
     margin: 8px 0;
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1;
-    color: #222222;
-  }
+}
 
-  .score-label {
-    color: #333333;
-    font-size: 1.12rem;
-    font-weight: 700;
-  }
+/* FAQ */
 
-  .result-text {
-    max-width: 650px;
-    margin: 15px auto 0;
-    color: #555555;
-  }
+.faq {
+    padding: 18px 0;
+    border-top: 1px solid #dddddd;
+}
 
-  .notice {
-    margin-top: 18px;
-    color: #777777;
-    font-size: 0.86rem;
-  }
+.faq:last-child {
+    border-bottom: 1px solid #dddddd;
+}
 
-  .links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 12px;
-    margin-top: 22px;
-  }
-
-  .link-card {
-    display: block;
-    padding: 15px;
-    border: 1px solid #e1e1e1;
-    border-radius: 7px;
-    background: #fafafa;
-    color: #333333;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .link-card:hover {
-    background: #f2f2f2;
-    color: #111111;
-    text-decoration: underline;
-  }
-
-  .faq {
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid #eeeeee;
-  }
-
-  .faq:first-of-type {
-    padding-top: 0;
-    border-top: none;
-  }
-
-  .faq h3 {
-    margin-bottom: 7px;
-    color: #222222;
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .faq p {
+.faq h3 {
     margin-top: 0;
-    color: #555555;
-  }
+}
 
-  footer {
-    padding: 35px 20px 50px;
-    color: #777777;
-    font-size: 0.88rem;
+/* FOOTER */
+
+footer {
+    margin-top: 40px;
+    padding: 25px 0 45px;
+    border-top: 1px solid #dddddd;
     text-align: center;
-  }
+    color: #777777;
+    font-size: 13px;
+}
 
-  footer a {
-    color: #444444;
-  }
+/* MOBILE */
 
-  @media (max-width: 600px) {
-    header {
-      padding-top: 38px;
+@media (max-width: 600px) {
+
+    nav {
+        line-height: 2;
     }
 
-    header h1 {
-      font-size: 1.85rem;
+    nav a {
+        margin-right: 12px;
     }
 
-    .card {
-      padding: 22px;
+    h1 {
+        font-size: 29px;
     }
 
-    .factor-header {
-      align-items: flex-start;
+    h2 {
+        font-size: 23px;
+    }
+
+    .intro {
+        font-size: 16px;
     }
 
     .score {
-      font-size: 2.8rem;
+        font-size: 40px;
     }
-  }
+
+}
+
 </style>
-```
 
+<!-- WEB APPLICATION SCHEMA -->
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Job Offer Decision Calculator",
+  "url": "https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "All",
+  "isAccessibleForFree": true,
+  "description": "A free calculator that helps users evaluate a job offer based on salary, career growth, work-life balance, job security, company culture, flexibility and personal fit."
+}
+</script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Job Offer Decision Calculator",
-    "url": "https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "All",
-    "description": "A free calculator that helps users evaluate a job offer across salary, career growth, work-life balance, job security, company culture, commute and personal priorities.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
-  </script>
+<!-- FAQ SCHEMA -->
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I compare multiple job offers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Compare more than salary. Consider career growth, work-life balance, job security, company culture, commute and how well each role fits your priorities. You can score each factor with this calculator and compare the overall result."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I accept a job offer with a higher salary?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A higher salary can be valuable, but it should be considered alongside career growth, workload, flexibility, job security and other factors. A larger paycheck is not automatically a better overall opportunity."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What factors should I consider before accepting a job offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Important factors include total compensation, career growth, work-life balance, job security, company culture, commute or remote flexibility, and how well the position matches your personal priorities."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I negotiate a job offer before accepting it?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Negotiation can be worthwhile when there is room to improve compensation or other terms. Consider negotiating salary, benefits, flexibility, vacation, title or other aspects that matter to you before making your final decision."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can a lower salary job still be the better choice?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. A lower salary may still be worthwhile if the role offers substantially better growth, flexibility, work-life balance, security or long-term opportunities. The calculator is designed to help you consider the complete picture."
-        }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I compare multiple job offers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compare salary and total compensation, career growth, work-life balance, job security, company culture, flexibility and your personal priorities. Using the same factors for each offer can make the differences easier to see."
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Question",
+      "name": "Should I accept a job offer with a higher salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A higher salary can be an important reason to change jobs, but it should be considered alongside workload, stress, career growth, flexibility, job security and work-life balance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I consider before accepting a job offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Consider salary and benefits, career growth, work-life balance, job security, company culture, management, flexibility, commute and how well the position fits your personal goals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I negotiate a job offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Negotiating can be worthwhile when there is room to improve salary or other employment terms. Depending on the employer, you may be able to discuss compensation, benefits, flexibility, vacation or other conditions before accepting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a lower salary job be a better choice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A lower salary can still be worthwhile if the position offers better career growth, work-life balance, flexibility, security or long-term opportunities."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Job Offer Decision Calculator</h1>
-      <p>
-        Should you accept that job offer? Compare the factors that matter most
-        and get a clearer picture before making your decision.
-      </p>
-    </div>
-  </header>
+<nav>
 
-  <main class="container">
+<a href="/">Home</a> |
+<a href="/salary-calculator.html">Salary Calculator</a> |
+<a href="/burnout-signs.html">Burnout Calculator</a> |
+<a href="/career-decision-calculator.html">Career Guide</a>
 
-    <section class="card calculator-card">
-      <h2>How Good Is This Job Offer?</h2>
+</nav>
 
-      <p class="intro">
-        Rate each factor from <strong>1 to 10</strong>. Think about how attractive
-        this job offer is to you personally, not how you think it "should" score.
-      </p>
+<main class="container">
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Salary & Total Compensation</div>
-          <div class="factor-value" id="salaryValue">5</div>
-        </div>
-        <p class="factor-description">
-          How attractive are the salary, bonus, benefits and overall compensation?
-        </p>
-        <input type="range" id="salary" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Poor</span><span>10 – Excellent</span></div>
-      </div>
+<header>
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Career Growth</div>
-          <div class="factor-value" id="growthValue">5</div>
-        </div>
-        <p class="factor-description">
-          How strong are the opportunities for learning, promotion and long-term development?
-        </p>
-        <input type="range" id="growth" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Limited</span><span>10 – Excellent</span></div>
-      </div>
+<h1>Job Offer Decision Calculator</h1>
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Work-Life Balance</div>
-          <div class="factor-value" id="balanceValue">5</div>
-        </div>
-        <p class="factor-description">
-          How well does the role fit the lifestyle and amount of personal time you want?
-        </p>
-        <input type="range" id="balance" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Poor</span><span>10 – Excellent</span></div>
-      </div>
+<p class="intro">
+Should you accept a new job offer? A higher salary can be tempting,
+but money is only one part of the decision. This free calculator helps
+you compare the factors that can make a job genuinely better for you.
+</p>
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Job Security</div>
-          <div class="factor-value" id="securityValue">5</div>
-        </div>
-        <p class="factor-description">
-          How confident are you about the company's stability and the security of the role?
-        </p>
-        <input type="range" id="security" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Uncertain</span><span>10 – Very Secure</span></div>
-      </div>
+</header>
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Company Culture</div>
-          <div class="factor-value" id="cultureValue">5</div>
-        </div>
-        <p class="factor-description">
-          How positive does the workplace, management style and company culture seem?
-        </p>
-        <input type="range" id="culture" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Poor Fit</span><span>10 – Great Fit</span></div>
-      </div>
+<hr class="divider">
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Commute & Flexibility</div>
-          <div class="factor-value" id="commuteValue">5</div>
-        </div>
-        <p class="factor-description">
-          Consider commuting time, remote work, location and schedule flexibility.
-        </p>
-        <input type="range" id="commute" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Difficult</span><span>10 – Ideal</span></div>
-      </div>
+<section class="calculator">
 
-      <div class="factor">
-        <div class="factor-header">
-          <div class="factor-title">Personal Fit</div>
-          <div class="factor-value" id="fitValue">5</div>
-        </div>
-        <p class="factor-description">
-          How well does this opportunity fit your goals, values and current life situation?
-        </p>
-        <input type="range" id="fit" min="1" max="10" value="5">
-        <div class="scale"><span>1 – Poor Fit</span><span>10 – Perfect Fit</span></div>
-      </div>
+<h2>Compare Your Job Offer</h2>
 
-      <button class="calculate-btn" onclick="calculateOffer()">
-        Calculate My Job Offer Score
-      </button>
+<p class="calculator-intro">
+Rate each factor from <strong>1 to 10</strong>. Give a higher score when
+the offer looks especially good for you in that area.
+</p>
 
-      <div class="result" id="result">
-        <div>Your Job Offer Score</div>
-        <div class="score" id="score">0</div>
-        <div class="score-label" id="scoreLabel"></div>
-        <p class="result-text" id="resultText"></p>
-        <p class="notice">
-          This score is a decision aid, not a prediction. Use it alongside your
-          own judgment, financial situation and personal priorities.
-        </p>
-      </div>
-    </section>
+<!-- SALARY -->
 
-    <section class="card">
-      <h2>How to Use the Job Offer Decision Calculator</h2>
+<div class="factor">
 
-      <p>
-        A job offer is about more than the number on the paycheck. Before accepting
-        a new role, consider how the opportunity fits your career, lifestyle,
-        financial goals and personal priorities.
-      </p>
+<div class="factor-header">
+<span class="factor-name">Salary & Total Compensation</span>
+<span class="factor-value" id="salaryValue">5</span>
+</div>
 
-      <p>
-        Rate each factor honestly from 1 to 10. A score of 10 means the job performs
-        extremely well for you in that category, while 1 means it performs very poorly.
-        The calculator combines your ratings into an overall score.
-      </p>
+<p class="factor-description">
+How attractive are the salary, bonus, benefits and total compensation?
+</p>
 
-      <p>
-        A high score suggests that the offer looks attractive across several important
-        areas. A lower score does not automatically mean you should reject it; instead,
-        look at which individual factors pulled the score down. Those may be the areas
-        where you need more information or where negotiation could help.
-      </p>
-    </section>
+<input type="range" id="salary" min="1" max="10" value="5">
 
-    <section class="card">
-      <h2>What Should You Consider Before Accepting a Job Offer?</h2>
+<div class="scale">
+<span>1 – Poor</span>
+<span>10 – Excellent</span>
+</div>
 
-      <p>
-        Salary is important, but accepting a job is a bigger decision than comparing
-        two numbers. Career growth, work-life balance, management, job security,
-        flexibility and personal fit can have a major effect on how satisfied you are
-        with a role over time.
-      </p>
+</div>
 
-      <p>
-        If the offer looks financially attractive but scores poorly on several other
-        factors, take a closer look before deciding. Conversely, a position with a
-        slightly lower salary may be worth considering if it offers substantially
-        better growth, flexibility or quality of life.
-      </p>
+<!-- CAREER GROWTH -->
 
-      <div class="links">
-        <a class="link-card" href="/should-i-change-jobs-for-higher-salary.html">
-          Should I Change Jobs for a Higher Salary?
-        </a>
+<div class="factor">
 
-        <a class="link-card" href="/salary-negotiation-guide.html">
-          Salary Negotiation Guide
-        </a>
+<div class="factor-header">
+<span class="factor-name">Career Growth</span>
+<span class="factor-value" id="growthValue">5</span>
+</div>
 
-        <a class="link-card" href="/burnout-signs.html">
-          Burnout Signs & Warning Signals
-        </a>
+<p class="factor-description">
+How strong are the opportunities for learning, promotion and development?
+</p>
 
-        <a class="link-card" href="/should-i-quit-my-job.html">
-          Should I Quit My Job?
-        </a>
+<input type="range" id="growth" min="1" max="10" value="5">
 
-        <a class="link-card" href="/how-long-should-i-stay-in-job.html">
-          How Long Should I Stay in a Job?
-        </a>
-      </div>
-    </section>
+<div class="scale">
+<span>1 – Limited</span>
+<span>10 – Excellent</span>
+</div>
 
-    <section class="card">
-      <h2>Frequently Asked Questions About Job Offers</h2>
+</div>
 
-      <div class="faq">
-        <h3>How do I compare multiple job offers?</h3>
-        <p>
-          Compare more than salary. Consider compensation, career growth, work-life
-          balance, job security, company culture, flexibility and how well each role
-          fits your priorities. Score each offer separately and compare the results.
-        </p>
-      </div>
+<!-- WORK LIFE -->
 
-      <div class="faq">
-        <h3>Should I accept a job offer with a higher salary?</h3>
-        <p>
-          A higher salary can be valuable, but it is not automatically a better
-          opportunity. Consider the additional workload, commute, flexibility,
-          career prospects and overall quality of life before deciding.
-        </p>
-      </div>
+<div class="factor">
 
-      <div class="faq">
-        <h3>What factors matter most in a job offer?</h3>
-        <p>
-          Salary, career growth, work-life balance, job security, company culture,
-          flexibility and personal fit are common factors. Their importance depends
-          on your own circumstances and priorities.
-        </p>
-      </div>
+<div class="factor-header">
+<span class="factor-name">Work-Life Balance</span>
+<span class="factor-value" id="balanceValue">5</span>
+</div>
 
-      <div class="faq">
-        <h3>Should I negotiate a job offer before accepting it?</h3>
-        <p>
-          Negotiation can be worthwhile when there is room to improve the offer.
-          Salary, benefits, vacation, flexibility, title and other employment terms
-          may sometimes be negotiable.
-        </p>
-      </div>
+<p class="factor-description">
+How well does the job fit the amount of personal time and flexibility you want?
+</p>
 
-      <div class="faq">
-        <h3>Can a lower salary job still be the better choice?</h3>
-        <p>
-          Yes. A lower salary may still make sense if the role offers significantly
-          better growth, flexibility, security, work-life balance or long-term
-          opportunities. Consider the complete package rather than salary alone.
-        </p>
-      </div>
-    </section>
+<input type="range" id="balance" min="1" max="10" value="5">
 
-  </main>
+<div class="scale">
+<span>1 – Poor</span>
+<span>10 – Excellent</span>
+</div>
 
-  <footer>
-    <div class="container">
-      <p>
-        Life Decision Simulator helps you think through important career and life
-        choices with practical decision tools.
-      </p>
-      <p>
-        <a href="/">Life Decision Simulator</a>
-      </p>
-    </div>
-  </footer>
+</div>
 
-  <script>
-    const sliders = [
-      "salary",
-      "growth",
-      "balance",
-      "security",
-      "culture",
-      "commute",
-      "fit"
-    ];
+<!-- SECURITY -->
 
-    sliders.forEach(function(id) {
-      const slider = document.getElementById(id);
-      const value = document.getElementById(id + "Value");
+<div class="factor">
 
-      slider.addEventListener("input", function() {
-        value.textContent = slider.value;
-      });
+<div class="factor-header">
+<span class="factor-name">Job Security</span>
+<span class="factor-value" id="securityValue">5</span>
+</div>
+
+<p class="factor-description">
+How stable and secure does the company and position appear to be?
+</p>
+
+<input type="range" id="security" min="1" max="10" value="5">
+
+<div class="scale">
+<span>1 – Uncertain</span>
+<span>10 – Very Secure</span>
+</div>
+
+</div>
+
+<!-- CULTURE -->
+
+<div class="factor">
+
+<div class="factor-header">
+<span class="factor-name">Company Culture</span>
+<span class="factor-value" id="cultureValue">5</span>
+</div>
+
+<p class="factor-description">
+How well do the workplace culture, management style and values fit you?
+</p>
+
+<input type="range" id="culture" min="1" max="10" value="5">
+
+<div class="scale">
+<span>1 – Poor Fit</span>
+<span>10 – Great Fit</span>
+</div>
+
+</div>
+
+<!-- FLEXIBILITY -->
+
+<div class="factor">
+
+<div class="factor-header">
+<span class="factor-name">Commute & Flexibility</span>
+<span class="factor-value" id="flexibilityValue">5</span>
+</div>
+
+<p class="factor-description">
+Consider commuting time, remote work, location and schedule flexibility.
+</p>
+
+<input type="range" id="flexibility" min="1" max="10" value="5">
+
+<div class="scale">
+<span>1 – Difficult</span>
+<span>10 – Ideal</span>
+</div>
+
+</div>
+
+<!-- PERSONAL FIT -->
+
+<div class="factor">
+
+<div class="factor-header">
+<span class="factor-name">Personal Fit</span>
+<span class="factor-value" id="fitValue">5</span>
+</div>
+
+<p class="factor-description">
+How well does this opportunity fit your goals, values and current life situation?
+</p>
+
+<input type="range" id="fit" min="1" max="10" value="5">
+
+<div class="scale">
+<span>1 – Poor Fit</span>
+<span>10 – Excellent Fit</span>
+</div>
+
+</div>
+
+<button id="calculateButton">
+Calculate My Job Offer Score
+</button>
+
+<div class="result" id="result">
+
+<div class="result-heading">
+Your Job Offer Score
+</div>
+
+<div class="score" id="score">
+50%
+</div>
+
+<div class="verdict" id="verdict">
+Mixed Offer
+</div>
+
+<p class="result-text" id="resultText">
+Your results will appear here.
+</p>
+
+<p class="note">
+This calculator is a decision aid, not a prediction.
+Consider your own circumstances and priorities before making
+an important career decision.
+</p>
+
+</div>
+
+</section>
+
+<hr class="divider">
+
+<section>
+
+<h2>How to Use the Job Offer Decision Calculator</h2>
+
+<p>
+A job offer is about more than the number on the paycheck.
+Salary, benefits and financial security matter, but so do career
+growth, work-life balance, company culture and the way the job fits
+into your life.
+</p>
+
+<p>
+Rate each factor from 1 to 10 based on the offer you are considering.
+There is no objectively correct score. A factor that is extremely
+important to you may deserve a much higher personal rating than it
+would for someone else.
+</p>
+
+<p>
+The final score gives you a quick overview of how attractive the
+opportunity looks based on your ratings. More importantly, look at
+the individual scores. A very low score in an important area may
+deserve further investigation before you accept the offer.
+</p>
+
+</section>
+
+<section>
+
+<h2>What Matters Most in a Job Offer?</h2>
+
+<p>
+Salary is one of the most obvious factors when comparing jobs, but
+accepting a new position can affect many areas of your life.
+A higher-paying role may involve a longer commute, greater stress,
+fewer flexible hours or weaker career prospects.
+</p>
+
+<p>
+On the other hand, a job offering slightly less money could provide
+better work-life balance, stronger career development or a healthier
+workplace. The best choice depends on what you value most at this
+point in your life.
+</p>
+
+<p>
+If the offer looks attractive financially but you are already feeling
+overwhelmed by your current job, it may also be worth looking at your
+current situation before making a decision.
+</p>
+
+</section>
+
+<section>
+
+<h2>Related Career Decision Tools</h2>
+
+<div class="related-links">
+
+<p>
+→ <a href="/should-i-change-jobs-for-higher-salary.html">
+Should I Change Jobs for a Higher Salary?
+</a>
+</p>
+
+<p>
+→ <a href="/salary-negotiation-guide.html">
+Salary Negotiation Guide
+</a>
+</p>
+
+<p>
+→ <a href="/burnout-signs.html">
+Burnout Signs
+</a>
+</p>
+
+<p>
+→ <a href="/should-i-quit-my-job.html">
+Should I Quit My Job?
+</a>
+</p>
+
+<p>
+→ <a href="/how-long-should-i-stay-in-job.html">
+How Long Should I Stay in a Job?
+</a>
+</p>
+
+<p>
+→ <a href="/decision-matrix-life-choices.html">
+Decision Matrix for Life Choices
+</a>
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Frequently Asked Questions About Job Offers</h2>
+
+<div class="faq">
+
+<h3>How do I compare multiple job offers?</h3>
+
+<p>
+Compare salary and total compensation, career growth, work-life
+balance, job security, company culture, flexibility and your personal
+priorities. Using the same factors for each offer can make the
+differences easier to see.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h3>Should I accept a job offer with a higher salary?</h3>
+
+<p>
+A higher salary can be an important reason to change jobs, but it
+should be considered alongside workload, stress, career growth,
+flexibility, job security and work-life balance.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h3>What should I consider before accepting a job offer?</h3>
+
+<p>
+Consider salary and benefits, career growth, work-life balance,
+job security, company culture, management, flexibility, commute
+and how well the position fits your personal goals.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h3>Should I negotiate a job offer?</h3>
+
+<p>
+Negotiating can be worthwhile when there is room to improve salary
+or other employment terms. Depending on the employer, you may be
+able to discuss compensation, benefits, flexibility, vacation or
+other conditions before accepting.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h3>Can a lower salary job be a better choice?</h3>
+
+<p>
+Yes. A lower salary can still be worthwhile if the position offers
+better career growth, work-life balance, flexibility, security or
+long-term opportunities.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Life Decision Simulator
+</p>
+
+<p>
+<a href="/">Life Decision Simulator</a>
+</p>
+
+</footer>
+
+<script>
+
+const sliders = [
+    "salary",
+    "growth",
+    "balance",
+    "security",
+    "culture",
+    "flexibility",
+    "fit"
+];
+
+sliders.forEach(function(id) {
+
+    const slider = document.getElementById(id);
+    const valueDisplay = document.getElementById(id + "Value");
+
+    slider.addEventListener("input", function() {
+        valueDisplay.textContent = slider.value;
     });
 
-    function calculateOffer() {
-      const values = sliders.map(function(id) {
-        return Number(document.getElementById(id).value);
-      });
+});
 
-      const total = values.reduce(function(sum, value) {
-        return sum + value;
-      }, 0);
+document.getElementById("calculateButton").addEventListener("click", function() {
 
-      const percentage = Math.round((total / 70) * 100);
+    let total = 0;
 
-      let label = "";
-      let text = "";
+    sliders.forEach(function(id) {
+        total += Number(document.getElementById(id).value);
+    });
 
-      if (percentage >= 85) {
-        label = "Very Strong Offer";
-        text = "This offer scores very well across the factors you considered. It appears to be a strong overall fit, although you should still check the details that matter most to you before accepting.";
-      } else if (percentage >= 70) {
-        label = "Promising Offer";
-        text = "This looks like a promising opportunity. Most of the factors are working in its favor, but review the weaker areas carefully and consider whether they can be improved through questions or negotiation.";
-      } else if (percentage >= 55) {
-        label = "Mixed Offer";
-        text = "The offer has some attractive qualities, but there are meaningful trade-offs. Identify the lowest-scoring factors and decide whether they are acceptable or worth negotiating.";
-      } else if (percentage >= 40) {
-        label = "Proceed Carefully";
-        text = "Several important areas appear weaker for you. Before accepting, gather more information and consider whether the offer can realistically meet your priorities.";
-      } else {
-        label = "Weak Overall Fit";
-        text = "Based on your ratings, this offer does not currently look like a strong match for your priorities. Consider asking more questions, negotiating key terms or comparing other opportunities.";
-      }
+    const percentage = Math.round((total / 70) * 100);
 
-      document.getElementById("score").textContent = percentage + "%";
-      document.getElementById("scoreLabel").textContent = label;
-      document.getElementById("resultText").textContent = text;
+    let verdict = "";
+    let text = "";
 
-      const result = document.getElementById("result");
-      result.classList.add("visible");
+    if (percentage >= 85) {
 
-      result.scrollIntoView({
+        verdict = "Excellent Overall Fit";
+
+        text =
+        "This job offer scores very strongly across the factors you selected. " +
+        "It appears to be a particularly attractive opportunity for your priorities. " +
+        "Before accepting, make sure there are no important details you have overlooked.";
+
+    } else if (percentage >= 70) {
+
+        verdict = "Strong Offer";
+
+        text =
+        "This looks like a strong overall opportunity. Most of the factors are " +
+        "working in its favor. Pay particular attention to any areas that received " +
+        "a noticeably lower score.";
+
+    } else if (percentage >= 55) {
+
+        verdict = "Mixed Offer";
+
+        text =
+        "This offer has some attractive qualities but also some meaningful trade-offs. " +
+        "Look closely at the lowest-scoring factors and decide whether they are " +
+        "acceptable or whether you can negotiate or clarify them.";
+
+    } else if (percentage >= 40) {
+
+        verdict = "Proceed Carefully";
+
+        text =
+        "Several important areas appear weaker based on your ratings. " +
+        "Before accepting, gather more information and consider whether the weaker " +
+        "areas can realistically be improved.";
+
+    } else {
+
+        verdict = "Weak Overall Fit";
+
+        text =
+        "Based on your ratings, this offer does not currently appear to be a strong " +
+        "match for your priorities. Consider asking more questions, negotiating " +
+        "important terms or comparing the opportunity with other options.";
+
+    }
+
+    document.getElementById("score").textContent = percentage + "%";
+    document.getElementById("verdict").textContent = verdict;
+    document.getElementById("resultText").textContent = text;
+
+    const result = document.getElementById("result");
+
+    result.classList.add("show");
+
+    result.scrollIntoView({
         behavior: "smooth",
         block: "center"
-      });
-    }
-  </script>
+    });
+
+});
+
+</script>
 
 </body>
 </html>
