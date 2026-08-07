@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,112 +9,19 @@
 <meta name="description" content="Should you accept a job offer? Use our free Job Offer Decision Calculator to compare salary, career growth, work-life balance, job security, company culture and personal fit.">
 
 <link rel="canonical" href="https://www.lifedecisionsimulator.com/job-offer-decision-calculator.html">
+<link rel="stylesheet" href="style.css">
 
 <style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: #ffffff;
-    color: #222222;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    font-size: 16px;
-}
-
-a {
-    color: #1f4f7a;
-}
-
-a:hover {
-    color: #163b5c;
-}
-
-.container {
-    width: 92%;
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-/* NAVIGATION */
-
-nav {
-    width: 92%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 18px 0;
-    border-bottom: 1px solid #dddddd;
-    font-size: 14px;
-}
-
-nav a {
-    margin-right: 18px;
-    text-decoration: none;
-    color: #333333;
-}
-
-/* HEADER */
-
-header {
-    padding: 38px 0 25px;
-}
-
-h1 {
-    margin: 0 0 15px;
-    font-size: 34px;
-    line-height: 1.25;
-    color: #222222;
-}
-
-.intro {
-    margin: 0;
-    color: #555555;
-    font-size: 17px;
-}
-
-/* DIVIDERS */
-
-.divider {
-    border: 0;
-    border-top: 1px solid #dddddd;
-    margin: 28px 0;
-}
-
-/* HEADINGS */
-
-h2 {
-    margin-top: 35px;
-    margin-bottom: 15px;
-    font-size: 25px;
-    line-height: 1.3;
-    color: #222222;
-}
-
-h3 {
-    margin-top: 25px;
-    margin-bottom: 8px;
-    font-size: 19px;
-    color: #222222;
-}
-
-/* CALCULATOR */
-
-.calculator {
-    margin-top: 25px;
-}
-
-.calculator-intro {
-    color: #555555;
-    margin-bottom: 30px;
+.calculator-card {
+    max-width: 800px;
+    margin: 25px auto;
+    text-align: left;
 }
 
 .factor {
-    margin: 27px 0;
-    padding-bottom: 22px;
-    border-bottom: 1px solid #eeeeee;
+    margin: 24px 0;
+    padding: 16px 0;
+    border-bottom: 1px solid #dcecf7;
 }
 
 .factor:last-of-type {
@@ -130,174 +36,90 @@ h3 {
 }
 
 .factor-name {
+    color: #1a3e70;
     font-weight: bold;
-    color: #222222;
+    font-size: 18px;
 }
 
 .factor-value {
-    font-weight: bold;
-    font-size: 18px;
-    color: #1f4f7a;
-    min-width: 28px;
+    min-width: 38px;
     text-align: center;
+    color: #1a73e8;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .factor-description {
-    margin: 5px 0 10px;
-    color: #666666;
-    font-size: 14px;
+    margin: 7px 0 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
 }
-
-/* SLIDERS */
 
 input[type="range"] {
     width: 100%;
-    margin: 7px 0;
+    accent-color: #1a73e8;
     cursor: pointer;
-    accent-color: #1f4f7a;
 }
 
 .scale {
     display: flex;
     justify-content: space-between;
+    margin-top: 3px;
     color: #888888;
-    font-size: 12px;
+    font-size: 13px;
 }
 
-/* BUTTON */
-
-button {
-    width: 100%;
-    margin-top: 12px;
-    padding: 13px 18px;
-    border: none;
-    background: #1f4f7a;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #163b5c;
-}
-
-/* RESULT */
-
-.result {
+.result-box {
     display: none;
-    margin-top: 30px;
-    padding: 25px 20px;
-    border-top: 2px solid #1f4f7a;
-    border-bottom: 1px solid #dddddd;
+    margin-top: 25px;
+    padding: 22px;
+    background: #f0f8ff;
+    border: 2px solid #1a73e8;
+    border-radius: 10px;
     text-align: center;
 }
 
-.result.show {
+.result-box.show {
     display: block;
 }
 
-.result-heading {
-    font-size: 14px;
-    color: #666666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.score {
-    margin: 5px 0;
+.result-score {
+    color: #1a3e70;
     font-size: 46px;
     font-weight: bold;
-    color: #1f4f7a;
+    margin: 5px 0;
 }
 
-.verdict {
-    font-size: 21px;
+.result-verdict {
+    color: #d35400;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-.result-text {
-    max-width: 680px;
-    margin: 0 auto;
-    color: #555555;
+.result-box p {
+    margin: 10px auto;
 }
 
-.note {
-    margin-top: 18px;
-    font-size: 13px;
-    color: #777777;
+.faq-item {
+    text-align: left;
 }
-
-/* RELATED LINKS */
-
-.related-links {
-    margin-top: 20px;
-}
-
-.related-links p {
-    margin: 8px 0;
-}
-
-/* FAQ */
-
-.faq {
-    padding: 18px 0;
-    border-top: 1px solid #dddddd;
-}
-
-.faq:last-child {
-    border-bottom: 1px solid #dddddd;
-}
-
-.faq h3 {
-    margin-top: 0;
-}
-
-/* FOOTER */
-
-footer {
-    margin-top: 40px;
-    padding: 25px 0 45px;
-    border-top: 1px solid #dddddd;
-    text-align: center;
-    color: #777777;
-    font-size: 13px;
-}
-
-/* MOBILE */
 
 @media (max-width: 600px) {
-
-    nav {
-        line-height: 2;
-    }
-
-    nav a {
-        margin-right: 12px;
-    }
-
-    h1 {
-        font-size: 29px;
-    }
-
-    h2 {
-        font-size: 23px;
-    }
-
-    .intro {
+    .factor-name {
         font-size: 16px;
     }
 
-    .score {
-        font-size: 40px;
+    .factor-value {
+        font-size: 20px;
     }
 
+    .result-score {
+        font-size: 38px;
+    }
 }
-
 </style>
-
-<!-- WEB APPLICATION SCHEMA -->
 
 <script type="application/ld+json">
 {
@@ -311,8 +133,6 @@ footer {
   "description": "A free calculator that helps users evaluate a job offer based on salary, career growth, work-life balance, job security, company culture, flexibility and personal fit."
 }
 </script>
-
-<!-- FAQ SCHEMA -->
 
 <script type="application/ld+json">
 {
@@ -368,45 +188,37 @@ footer {
 <body>
 
 <nav>
-
 <a href="/">Home</a> |
 <a href="/salary-calculator.html">Salary Calculator</a> |
 <a href="/burnout-signs.html">Burnout Calculator</a> |
 <a href="/career-decision-calculator.html">Career Guide</a>
-
 </nav>
 
-<main class="container">
-
-<header>
+<hr>
 
 <h1>Job Offer Decision Calculator</h1>
 
-<p class="intro">
+<p>
 Should you accept a new job offer? A higher salary can be tempting,
 but money is only one part of the decision. This free calculator helps
 you compare the factors that can make a job genuinely better for you.
 </p>
 
-</header>
-
-<hr class="divider">
-
-<section class="calculator">
+<section>
 
 <h2>Compare Your Job Offer</h2>
 
-<p class="calculator-intro">
-Rate each factor from <strong>1 to 10</strong>. Give a higher score when
-the offer looks especially good for you in that area.
-</p>
+<div class="card calculator-card">
 
-<!-- SALARY -->
+<p>
+Rate each factor from <strong>1 to 10</strong>. Move each slider according
+to how good the new job looks for you in that area.
+</p>
 
 <div class="factor">
 
 <div class="factor-header">
-<span class="factor-name">Salary & Total Compensation</span>
+<span class="factor-name">Salary &amp; Total Compensation</span>
 <span class="factor-value" id="salaryValue">5</span>
 </div>
 
@@ -417,13 +229,11 @@ How attractive are the salary, bonus, benefits and total compensation?
 <input type="range" id="salary" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Poor</span>
-<span>10 – Excellent</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- CAREER GROWTH -->
 
 <div class="factor">
 
@@ -439,13 +249,11 @@ How strong are the opportunities for learning, promotion and development?
 <input type="range" id="growth" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Limited</span>
-<span>10 – Excellent</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- WORK LIFE -->
 
 <div class="factor">
 
@@ -461,13 +269,11 @@ How well does the job fit the amount of personal time and flexibility you want?
 <input type="range" id="balance" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Poor</span>
-<span>10 – Excellent</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- SECURITY -->
 
 <div class="factor">
 
@@ -483,13 +289,11 @@ How stable and secure does the company and position appear to be?
 <input type="range" id="security" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Uncertain</span>
-<span>10 – Very Secure</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- CULTURE -->
 
 <div class="factor">
 
@@ -505,18 +309,16 @@ How well do the workplace culture, management style and values fit you?
 <input type="range" id="culture" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Poor Fit</span>
-<span>10 – Great Fit</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- FLEXIBILITY -->
 
 <div class="factor">
 
 <div class="factor-header">
-<span class="factor-name">Commute & Flexibility</span>
+<span class="factor-name">Commute &amp; Flexibility</span>
 <span class="factor-value" id="flexibilityValue">5</span>
 </div>
 
@@ -527,13 +329,11 @@ Consider commuting time, remote work, location and schedule flexibility.
 <input type="range" id="flexibility" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Difficult</span>
-<span>10 – Ideal</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
-
-<!-- PERSONAL FIT -->
 
 <div class="factor">
 
@@ -549,45 +349,43 @@ How well does this opportunity fit your goals, values and current life situation
 <input type="range" id="fit" min="1" max="10" value="5">
 
 <div class="scale">
-<span>1 – Poor Fit</span>
-<span>10 – Excellent Fit</span>
+<span>1</span>
+<span>10</span>
 </div>
 
 </div>
 
-<button id="calculateButton">
+<button type="button" id="calculateButton">
 Calculate My Job Offer Score
 </button>
 
-<div class="result" id="result">
+<div class="result-box" id="result">
 
-<div class="result-heading">
-Your Job Offer Score
-</div>
+<div>Your Job Offer Score</div>
 
-<div class="score" id="score">
+<div class="result-score" id="score">
 50%
 </div>
 
-<div class="verdict" id="verdict">
+<div class="result-verdict" id="verdict">
 Mixed Offer
 </div>
 
-<p class="result-text" id="resultText">
-Your results will appear here.
-</p>
+<p id="resultText"></p>
 
-<p class="note">
+<p>
+<small>
 This calculator is a decision aid, not a prediction.
 Consider your own circumstances and priorities before making
 an important career decision.
+</small>
 </p>
+
+</div>
 
 </div>
 
 </section>
-
-<hr class="divider">
 
 <section>
 
@@ -646,8 +444,6 @@ current situation before making a decision.
 
 <h2>Related Career Decision Tools</h2>
 
-<div class="related-links">
-
 <p>
 → <a href="/should-i-change-jobs-for-higher-salary.html">
 Should I Change Jobs for a Higher Salary?
@@ -684,40 +480,37 @@ Decision Matrix for Life Choices
 </a>
 </p>
 
-</div>
-
 </section>
 
 <section>
 
 <h2>Frequently Asked Questions About Job Offers</h2>
 
-<div class="faq">
+<div class="faq-item">
 
 <h3>How do I compare multiple job offers?</h3>
 
 <p>
-Compare salary and total compensation, career growth, work-life
-balance, job security, company culture, flexibility and your personal
-priorities. Using the same factors for each offer can make the
-differences easier to see.
+Compare salary and total compensation, career growth, work-life balance,
+job security, company culture, flexibility and your personal priorities.
+Using the same factors for each offer can make the differences easier to see.
 </p>
 
 </div>
 
-<div class="faq">
+<div class="faq-item">
 
 <h3>Should I accept a job offer with a higher salary?</h3>
 
 <p>
-A higher salary can be an important reason to change jobs, but it
-should be considered alongside workload, stress, career growth,
-flexibility, job security and work-life balance.
+A higher salary can be an important reason to change jobs, but it should
+be considered alongside workload, stress, career growth, flexibility,
+job security and work-life balance.
 </p>
 
 </div>
 
-<div class="faq">
+<div class="faq-item">
 
 <h3>What should I consider before accepting a job offer?</h3>
 
@@ -729,7 +522,7 @@ and how well the position fits your personal goals.
 
 </div>
 
-<div class="faq">
+<div class="faq-item">
 
 <h3>Should I negotiate a job offer?</h3>
 
@@ -742,7 +535,7 @@ other conditions before accepting.
 
 </div>
 
-<div class="faq">
+<div class="faq-item">
 
 <h3>Can a lower salary job be a better choice?</h3>
 
@@ -756,13 +549,9 @@ long-term opportunities.
 
 </section>
 
-</main>
-
 <footer>
 
-<p>
-© 2026 Life Decision Simulator
-</p>
+<p>© 2026 Life Decision Simulator</p>
 
 <p>
 <a href="/">Life Decision Simulator</a>
@@ -803,8 +592,8 @@ document.getElementById("calculateButton").addEventListener("click", function() 
 
     const percentage = Math.round((total / 70) * 100);
 
-    let verdict = "";
-    let text = "";
+    let verdict;
+    let text;
 
     if (percentage >= 85) {
 
@@ -872,4 +661,3 @@ document.getElementById("calculateButton").addEventListener("click", function() 
 
 </body>
 </html>
-```
