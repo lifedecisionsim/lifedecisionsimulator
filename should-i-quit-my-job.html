@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +6,7 @@
 
   <title>Should I Quit My Job? Free Quiz, Calculator & Simulator</title>
 
-  <meta name="description" content="Should I quit my job? Use this free quit job simulator and self-check to evaluate stress, job satisfaction, finances, and your plans before making a decision.">
+  <meta name="description" content="Should I quit my job? Take this free quiz and simulator to evaluate your stress, job satisfaction, finances, and readiness to leave your job.">
 
   <link rel="canonical" href="https://lifedecisionsimulator.com/should-i-quit-my-job.html">
 
@@ -15,7 +14,7 @@
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-      padding: 40px;
+      padding: 40px 20px;
       max-width: 700px;
       margin: auto;
       color: #333;
@@ -25,7 +24,7 @@
     h1 {
       text-align: center;
       color: #2b8a3e;
-      line-height: 1.2;
+      margin-bottom: 15px;
     }
 
     h2 {
@@ -34,14 +33,11 @@
     }
 
     h3 {
+      color: #333;
       margin-top: 25px;
     }
 
     p {
-      text-align: center;
-    }
-
-    .intro {
       text-align: center;
     }
 
@@ -50,7 +46,7 @@
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     label {
@@ -63,6 +59,12 @@
       margin: 10px 0;
     }
 
+    input[type="number"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
     span.slider-value {
       font-weight: bold;
       margin-left: 10px;
@@ -70,9 +72,10 @@
 
     select {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-bottom: 20px;
       border-radius: 6px;
+      border: 1px solid #ccc;
     }
 
     button {
@@ -84,6 +87,7 @@
       cursor: pointer;
       width: 100%;
       font-size: 16px;
+      font-weight: bold;
     }
 
     button:hover {
@@ -96,6 +100,10 @@
       border-radius: 12px;
       text-align: center;
       font-weight: bold;
+    }
+
+    #result h2 {
+      margin-top: 0;
     }
 
     .result-high {
@@ -117,6 +125,8 @@
       margin-top: 30px;
       padding: 20px;
       display: none;
+      background: #fff;
+      border-radius: 12px;
     }
 
     #next-steps ul {
@@ -129,21 +139,19 @@
       margin-bottom: 10px;
     }
 
-    #next-steps a,
-    .seo-text a {
+    #next-steps a {
       font-weight: bold;
       color: #1a73e8;
       text-decoration: none;
     }
 
-    #next-steps a:hover,
-    .seo-text a:hover {
+    #next-steps a:hover {
       text-decoration: underline;
     }
 
     hr {
       margin: 50px 0;
-      border: 0;
+      border: none;
       border-top: 1px solid #ddd;
     }
 
@@ -156,57 +164,134 @@
       text-align: left;
     }
 
-    .checklist {
-      background: #fff;
-      padding: 20px 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-      margin-top: 25px;
-    }
-
-    .checklist ul {
-      padding-left: 22px;
-    }
-
-    .checklist li {
-      margin-bottom: 10px;
-    }
-
-    .note {
-      background: #f0f7f1;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
+    .seo-text p {
       text-align: left;
     }
 
+    /* Quick Self-Check */
+
+    .checklist {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .checklist h2 {
+      margin-top: 0;
+    }
+
+    .checklist ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 15px 0 0 0;
+    }
+
+    .checklist li {
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: #2b8a3e;
+    }
+
+    /* FAQ */
+
     .faq {
-      margin-top: 25px;
+      margin-top: 40px;
+    }
+
+    .faq h2 {
+      margin-bottom: 25px;
     }
 
     .faq h3 {
       color: #333;
+      margin-bottom: 8px;
+    }
+
+    .faq p {
+      text-align: left;
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    /* Related tools */
+
+    .related-tools {
+      margin-top: 40px;
+      padding: 25px;
+      background: #fff;
+      border-radius: 12px;
+    }
+
+    .related-tools h2 {
+      margin-top: 0;
+    }
+
+    .related-tools ul {
+      padding-left: 20px;
+    }
+
+    .related-tools li {
+      margin-bottom: 10px;
+    }
+
+    .related-tools a {
+      color: #1a73e8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .related-tools a:hover {
+      text-decoration: underline;
     }
 
     footer {
       margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
       text-align: center;
       font-size: 14px;
       color: #777;
     }
+
+    footer a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 25px 15px;
+      }
+
+      input[type="range"],
+      input[type="number"] {
+        width: 100%;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
   </style>
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Should I Quit My Job? Free Quiz, Calculator & Simulator",
-    "description": "A free simulator and self-check to help evaluate whether leaving a job may be worth considering.",
     "url": "https://lifedecisionsimulator.com/should-i-quit-my-job.html",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Life Decision Simulator"
-    }
+    "description": "A free quiz, calculator and simulator to help evaluate whether you may be ready to quit your job."
   }
   </script>
 
@@ -220,23 +305,15 @@
         "name": "Should I quit my job?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "There is no single answer for everyone. Consider your stress level, job satisfaction, finances, career prospects, health and whether you have a realistic plan for what comes next."
+          "text": "There is no single answer for everyone. Consider your stress, job satisfaction, financial situation, savings, and whether you have a realistic plan after leaving."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I know when it is time to quit my job?",
+        "name": "When is it time to quit your job?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Persistent stress, very low job satisfaction, lack of growth, poor working conditions and a lack of realistic improvement can all be reasons to consider leaving. Financial preparation and a plan can make the transition safer."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I quit my job without another job?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Quitting without another job can be possible, but your financial situation matters. Consider your savings, monthly expenses, debt, benefits and how long you could realistically manage without income."
+          "text": "It may be time to consider leaving when problems such as chronic stress, lack of growth, poor job satisfaction, or an unhealthy work environment persist despite attempts to improve the situation."
         }
       },
       {
@@ -244,15 +321,15 @@
         "name": "Can I afford to quit my job?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A useful starting point is to compare your savings and other available income with your essential monthly expenses. The longer you can cover essential costs without employment income, the more financial flexibility you generally have."
+          "text": "Your ability to afford quitting depends on your savings, monthly expenses, income alternatives, debt, and how long you could support yourself without a salary."
         }
       },
       {
         "@type": "Question",
-        "name": "Should I quit my job if I am stressed?",
+        "name": "Should I quit my job without another job?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Stress alone does not automatically mean you should quit. Consider whether the stress is temporary or persistent, whether working conditions can realistically improve, and what alternatives are available."
+          "text": "Quitting without another job can be possible, but it is generally safer when you have sufficient savings, manageable expenses, and a realistic plan for your next step."
         }
       }
     ]
@@ -265,271 +342,481 @@
 
 <h1>Should I Quit My Job?</h1>
 
-<p class="intro">
-  <strong>Should I quit my job?</strong> If you are feeling stressed, unhappy, stuck, or uncertain about your future at work, this free simulator can help you look at the decision from several angles.
+<p>
+  <strong>Should I quit my job?</strong>
+  If you're feeling stuck, stressed, burned out, or unhappy at work,
+  this free quiz and simulator can help you think through your situation.
 </p>
 
-<p class="intro">
-  It considers your salary, monthly expenses, job satisfaction, stress level, and whether you have a plan after quitting.
+<p>
+  It looks at your financial situation, stress level, job satisfaction,
+  and whether you have a plan after quitting.
 </p>
 
-<p class="intro">
-  Not sure whether you need to leave or simply need some time away?
-  Try our <a href="should-i-take-a-break-from-work.html">break from work test</a>.
+<p>
+  Not sure if you need a break rather than a permanent change?
+  Try our
+  <a href="should-i-take-a-break-from-work.html">break from work test</a>.
 </p>
+
+
+<!-- SIMULATOR -->
 
 <form id="form">
 
-<label>Age</label><br> <input type="number" name="age" value="30" min="16" max="100"><br><br>
+  <label for="age">Age</label><br>
+  <input type="number" id="age" name="age" value="30" min="16" max="100"><br><br>
 
-<label>Monthly Salary (€)</label><br> <input type="number" name="salary" value="3000" min="0"><br><br>
+  <label for="salary">Monthly Salary (€)</label><br>
+  <input type="number" id="salary" name="salary" value="3000" min="0"><br><br>
 
-<label>Monthly Expenses (€)</label><br> <input type="number" name="expenses" value="2000" min="0"><br><br>
+  <label for="expenses">Monthly Expenses (€)</label><br>
+  <input type="number" id="expenses" name="expenses" value="2000" min="0"><br><br>
 
-<label>Job Satisfaction (1–10)</label><br> <input type="range" name="satisfaction" min="1" max="10" value="5"> <span id="satisfactionValue" class="slider-value">5</span> <br><br>
+  <label for="satisfaction">Job Satisfaction (1–10)</label><br>
+  <input
+    type="range"
+    id="satisfaction"
+    name="satisfaction"
+    min="1"
+    max="10"
+    value="5"
+  >
+  <span id="satisfactionValue" class="slider-value">5</span>
+  <br><br>
 
-<label>Stress Level (1–10)</label><br> <input type="range" name="stress" min="1" max="10" value="5"> <span id="stressValue" class="slider-value">5</span> <br><br>
+  <label for="stress">Stress Level (1–10)</label><br>
+  <input
+    type="range"
+    id="stress"
+    name="stress"
+    min="1"
+    max="10"
+    value="5"
+  >
+  <span id="stressValue" class="slider-value">5</span>
+  <br><br>
 
-<label>Do you have a plan after quitting?</label><br> <select name="plan"> <option value="no">No plan</option> <option value="yes">Yes, I have a plan</option> </select>
+  <label for="plan">Do you have a plan after quitting?</label><br>
 
-<button type="submit">Simulate</button>
+  <select id="plan" name="plan">
+    <option value="no">No plan</option>
+    <option value="yes">Yes, I have a plan</option>
+  </select>
+
+  <button type="submit">Simulate</button>
 
 </form>
 
+
+<!-- RESULT -->
+
 <div id="result"></div>
+
+
+<!-- NEXT STEPS -->
 
 <div id="next-steps">
 
   <div id="high">
     <ul>
-      <li><a href="should-i-quit-my-job-without-another-job.html">Should I Quit Without Another Job?</a></li>
-      <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
-      <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
-      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
-      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="should-i-quit-my-job-without-another-job.html">
+          Quit Without Another Job
+        </a>
+      </li>
+
+      <li>
+        <a href="decision-matrix-life-choices.html">
+          Decision Matrix Tool
+        </a>
+      </li>
+
+      <li>
+        <a href="life-decisions.html">
+          Life Decisions Guide
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
     </ul>
   </div>
+
 
   <div id="medium">
     <ul>
-      <li><a href="decision-matrix-life-choices.html">Decision Matrix Tool</a></li>
-      <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
-      <li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
-      <li><a href="salary-calculator.html">Salary Calculator</a></li>
-      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+
+      <li>
+        <a href="decision-matrix-life-choices.html">
+          Decision Matrix Tool
+        </a>
+      </li>
+
+      <li>
+        <a href="how-to-make-tough-decisions.html">
+          How to Make Tough Decisions
+        </a>
+      </li>
+
+      <li>
+        <a href="job-offer-decision-calculator.html">
+          Job Offer Calculator
+        </a>
+      </li>
+
+      <li>
+        <a href="life-decisions.html">
+          Life Decisions Guide
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
     </ul>
   </div>
 
+
   <div id="low">
     <ul>
-      <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
-      <li><a href="job-offer-decision-calculator.html">Compare Job Offers</a></li>
-      <li><a href="salary-calculator.html">Salary Calculator</a></li>
-      <li><a href="life-decisions.html">Life Decisions Guide</a></li>
+
+      <li>
+        <a href="how-to-make-tough-decisions.html">
+          Improve Decision Skills
+        </a>
+      </li>
+
+      <li>
+        <a href="job-offer-decision-calculator.html">
+          Compare Job Offers
+        </a>
+      </li>
+
+      <li>
+        <a href="life-decisions.html">
+          Life Decisions Guide
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
     </ul>
   </div>
 
 </div>
 
+
 <hr>
 
-<div class="seo-text">
 
-  <h2>Should I Quit My Job? A Practical Guide</h2>
+<!-- QUICK SELF CHECK -->
 
-  <p>
-    Deciding whether to quit your job is a major decision. It can involve your finances, career, relationships, mental energy, daily routine, and future plans. There is rarely one factor that gives you the answer.
-  </p>
-
-  <p>
-    This free <strong>quit job simulator</strong> is designed to help you step back and look at several important factors together. It is not a prediction and it cannot make the decision for you. Instead, it gives you a structured way to think about your situation.
-  </p>
+<div class="checklist">
 
   <h2>Should I Quit My Job? Quick Self-Check</h2>
 
-  <div class="checklist">
-
-```
-<p style="text-align:left;">
-  Before deciding, ask yourself these questions:
-</p>
-
-<ul>
-  <li>Am I consistently unhappy or stressed at work?</li>
-  <li>Has my job satisfaction stayed low for a long period?</li>
-  <li>Have I tried reasonable ways to improve the situation?</li>
-  <li>Do I have enough savings or another source of income to handle a transition?</li>
-  <li>Do I have a realistic idea of what I would do after leaving?</li>
-  <li>Would staying in this job for another six months or year improve my situation?</li>
-  <li>Am I considering quitting because of a temporary problem or a persistent pattern?</li>
-</ul>
-```
-
-  </div>
-
-  <h2>When Is It Time to Quit Your Job?</h2>
-
   <p>
-    There is no universal point at which everyone should quit. However, persistent problems can be a reason to seriously evaluate whether staying is still worthwhile.
+    Before making a decision, ask yourself whether several of these
+    statements describe your current situation:
   </p>
-
-  <h3>1. Your stress is consistently high</h3>
-
-  <p>
-    A difficult week is different from feeling overwhelmed month after month. If work consistently leaves you exhausted and the situation does not appear likely to improve, it may be time to consider your alternatives.
-  </p>
-
-  <h3>2. Your job satisfaction is consistently low</h3>
-
-  <p>
-    Everyone has bad days at work. A persistent lack of satisfaction, motivation, or interest can be more significant, particularly when combined with limited opportunities for improvement.
-  </p>
-
-  <h3>3. You have stopped growing</h3>
-
-  <p>
-    If your role no longer provides meaningful learning, responsibility, progression, or opportunities that matter to you, consider whether another position could offer better long-term career growth.
-  </p>
-
-  <h3>4. You have tried to improve the situation</h3>
-
-  <p>
-    Before quitting, consider whether there are realistic alternatives such as changing responsibilities, discussing problems with your manager, negotiating working conditions, taking time off, or looking for another position while remaining employed.
-  </p>
-
-  <h2>Can I Afford to Quit My Job?</h2>
-
-  <p>
-    Financial readiness is one of the most important parts of the decision. A job may be difficult to leave if your monthly expenses depend heavily on your current salary.
-  </p>
-
-  <p>
-    Start by looking at your essential monthly expenses, available savings, debt payments, insurance or other benefits, and whether you expect any income after leaving.
-  </p>
-
-  <div class="note">
-    <strong>A simple question to ask:</strong> If your salary stopped tomorrow, how long could you realistically cover your essential expenses?
-  </div>
-
-  <p>
-    If you are unsure about your financial position, our
-    <a href="salary-calculator.html">Salary Calculator</a>
-    can help you examine your income, while the
-    <a href="salary-growth.html">Salary Growth Calculator</a>
-    can help you think about your longer-term earning potential.
-  </p>
-
-  <h2>Should I Quit My Job Without Another Job?</h2>
-
-  <p>
-    Leaving without another job can sometimes be the right choice, but it carries more financial uncertainty. Your savings, monthly expenses, debt, benefits, personal circumstances, and ability to find another position all matter.
-  </p>
-
-  <p>
-    If you are considering this option, read our guide:
-    <a href="should-i-quit-my-job-without-another-job.html">Should I Quit My Job Without Another Job?</a>
-  </p>
-
-  <h2>Should I Leave My Job or Stay?</h2>
-
-  <p>
-    Sometimes the real choice is not simply "quit or stay." You may have several options: stay and negotiate, search for another job while employed, change roles, reduce your workload, take a break, or leave.
-  </p>
-
-  <p>
-    If you are comparing several possible paths, the
-    <a href="decision-matrix-life-choices.html">Decision Matrix Tool</a>
-    can help you compare them systematically.
-  </p>
-
-  <h2>Should I Quit My Job Quiz or Test?</h2>
-
-  <p>
-    If you searched for a <strong>should I quit my job quiz</strong> or <strong>should I quit my job test</strong>, the goal is usually the same: to get a clearer picture of whether leaving is worth considering.
-  </p>
-
-  <p>
-    Instead of relying on one yes-or-no question, this simulator looks at several factors together, including your stress, satisfaction, financial situation, and plans after quitting.
-  </p>
-
-  <p>
-    Your result should be treated as a starting point for reflection rather than a final answer. A major career decision deserves more than a single score.
-  </p>
-
-  <h2>Frequently Asked Questions</h2>
-
-  <div class="faq">
-
-```
-<h3>Should I quit my job?</h3>
-
-<p>
-  There is no single answer for everyone. Consider your stress level, job satisfaction, finances, career prospects, working conditions, and whether you have a realistic plan for what comes next.
-</p>
-
-
-<h3>How do I know when it is time to quit my job?</h3>
-
-<p>
-  Persistent stress, very low job satisfaction, lack of growth, poor working conditions, and a lack of realistic improvement can all be reasons to consider leaving. Financial preparation and a plan can make the transition safer.
-</p>
-
-
-<h3>Should I quit my job without another job?</h3>
-
-<p>
-  It can be possible, but your financial situation matters. Consider your savings, monthly expenses, debt, benefits, and how long you could realistically manage without employment income.
-</p>
-
-
-<h3>Can I afford to quit my job?</h3>
-
-<p>
-  Compare your savings and other available income with your essential monthly expenses. The longer you can cover essential costs without employment income, the more financial flexibility you generally have.
-</p>
-
-
-<h3>Should I quit my job if I am stressed?</h3>
-
-<p>
-  Stress alone does not automatically mean you should quit. Consider whether the stress is temporary or persistent, whether working conditions can realistically improve, and what alternatives are available.
-</p>
-
-
-<h3>What if I don't know what to do after quitting?</h3>
-
-<p>
-  You do not necessarily need every detail worked out before considering a change, but having at least a realistic next step can reduce uncertainty. Consider whether you want another job, a career change, time away from work, further education, or another direction.
-</p>
-```
-
-  </div>
-
-  <h2>Related Life Decision Tools</h2>
 
   <ul>
-    <li><a href="should-i-take-a-break-from-work.html">Should I Take a Break From Work?</a></li>
-    <li><a href="job-offer-decision-calculator.html">Job Offer Decision Calculator</a></li>
-    <li><a href="career-decision-calculator.html">Career Decision Calculator</a></li>
-    <li><a href="decision-matrix-life-choices.html">Decision Matrix for Life Choices</a></li>
-    <li><a href="how-to-make-tough-decisions.html">How to Make Tough Decisions</a></li>
-    <li><a href="salary-calculator.html">Salary Calculator</a></li>
-    <li><a href="salary-growth.html">Salary Growth Calculator</a></li>
+
+    <li>
+      I feel stressed or unhappy at work most of the time.
+    </li>
+
+    <li>
+      My job satisfaction has remained low for a long time.
+    </li>
+
+    <li>
+      I have tried to improve my situation but nothing has changed.
+    </li>
+
+    <li>
+      I no longer see meaningful opportunities for growth.
+    </li>
+
+    <li>
+      My job is negatively affecting my personal life.
+    </li>
+
+    <li>
+      I have considered leaving repeatedly rather than just having a bad week.
+    </li>
+
+    <li>
+      I have enough savings or a financial plan to handle a period without income.
+    </li>
+
+    <li>
+      I have an idea of what I want to do next.
+    </li>
+
   </ul>
 
 </div>
 
+
+<!-- SEO CONTENT -->
+
+<div class="seo-text">
+
+  <h2>When Is It Time to Quit Your Job?</h2>
+
+  <p>
+    Deciding when to quit your job is rarely simple. A difficult week,
+    a frustrating manager, or temporary stress does not necessarily mean
+    you should leave. But if dissatisfaction, stress, lack of growth,
+    or an unhealthy work environment continue for a long time, it may
+    be worth seriously considering a change.
+  </p>
+
+  <p>
+    The important question is not simply
+    <strong>"Should I quit my job?"</strong>
+    It is also whether leaving would improve your situation and whether
+    you are financially prepared for the transition.
+  </p>
+
+
+  <h2>Can I Afford to Quit My Job?</h2>
+
+  <p>
+    Your financial situation matters when deciding whether to leave.
+    Look at your monthly expenses, savings, debt, and potential income
+    after quitting.
+  </p>
+
+  <p>
+    If your expenses are high and you have little savings, quitting
+    immediately may create additional stress. On the other hand,
+    having a financial buffer can give you more flexibility while
+    looking for another job or deciding what to do next.
+  </p>
+
+  <p>
+    If you are asking
+    <strong>"How much money do I need to quit my job?"</strong>,
+    consider how many months of essential expenses you could cover
+    without your current salary.
+  </p>
+
+
+  <h2>Should I Quit My Job Without Another Job?</h2>
+
+  <p>
+    Leaving a job without another one lined up can sometimes be the
+    right decision, particularly when staying is seriously affecting
+    your wellbeing or when you have enough financial security to
+    manage the transition.
+  </p>
+
+  <p>
+    However, it is important to understand the financial consequences
+    before resigning. Consider your savings, monthly expenses,
+    insurance or benefits, debt obligations, and how long you expect
+    your job search to take.
+  </p>
+
+  <p>
+    Read our guide:
+    <a href="should-i-quit-my-job-without-another-job.html">
+      Should I Quit My Job Without Another Job?
+    </a>
+  </p>
+
+
+  <h2>Should I Leave My Job or Stay?</h2>
+
+  <p>
+    Sometimes the best decision is not immediately quitting. You may
+    be able to improve your situation by changing responsibilities,
+    negotiating working conditions, searching for another position,
+    taking time off, or addressing the source of your dissatisfaction.
+  </p>
+
+  <p>
+    A useful way to approach the decision is to compare both options:
+    staying and leaving. Think about your finances, career development,
+    stress, relationships, lifestyle, and long-term goals.
+  </p>
+
+  <p>
+    You can also use our
+    <a href="decision-matrix-life-choices.html">
+      Decision Matrix Tool
+    </a>
+    to compare your options more systematically.
+  </p>
+
+
+  <h2>Should I Quit My Job Quiz or Test?</h2>
+
+  <p>
+    A "Should I Quit My Job?" quiz cannot make the decision for you,
+    but it can help you identify the factors influencing your decision.
+    Your stress level, job satisfaction, financial position, and plans
+    for the future can all affect whether leaving makes sense.
+  </p>
+
+  <p>
+    Use the simulator above as a starting point, then consider the
+    wider circumstances of your life before making a major career decision.
+  </p>
+
+
+  <h2>Signs You May Need a Change</h2>
+
+  <p>
+    There are several common warning signs that your current job may
+    no longer be working for you. These can include persistent stress,
+    lack of motivation, feeling trapped, poor work-life balance,
+    limited opportunities for growth, or repeatedly thinking about
+    leaving.
+  </p>
+
+  <p>
+    One sign alone does not necessarily mean you should quit. The
+    bigger question is whether these problems are temporary or have
+    become a persistent pattern.
+  </p>
+
+</div>
+
+
+<!-- FAQ -->
+
+<div class="faq">
+
+  <h2>Frequently Asked Questions</h2>
+
+  <h3>Should I quit my job?</h3>
+
+  <p>
+    There is no single answer for everyone. Consider your stress,
+    job satisfaction, financial situation, savings, and whether you
+    have a realistic plan after leaving.
+  </p>
+
+
+  <h3>When is it time to quit your job?</h3>
+
+  <p>
+    It may be time to consider leaving when problems such as chronic
+    stress, lack of growth, poor job satisfaction, or an unhealthy
+    work environment persist despite attempts to improve the situation.
+  </p>
+
+
+  <h3>Can I afford to quit my job?</h3>
+
+  <p>
+    Your ability to afford quitting depends on your savings, monthly
+    expenses, income alternatives, debt, and how long you could support
+    yourself without a salary.
+  </p>
+
+
+  <h3>Should I quit my job without another job?</h3>
+
+  <p>
+    Quitting without another job can be possible, but it is generally
+    safer when you have sufficient savings, manageable expenses, and
+    a realistic plan for your next step.
+  </p>
+
+
+  <h3>What are the signs that I should quit my job?</h3>
+
+  <p>
+    Persistent stress, low job satisfaction, lack of growth, poor
+    work-life balance, and repeatedly wanting to leave can all be
+    signs that it is worth considering a change. The right decision
+    depends on your individual circumstances.
+  </p>
+
+</div>
+
+
+<!-- RELATED TOOLS -->
+
+<div class="related-tools">
+
+  <h2>More Life Decision Tools</h2>
+
+  <ul>
+
+    <li>
+      <a href="should-i-take-a-break-from-work.html">
+        Should I Take a Break From Work?
+      </a>
+    </li>
+
+    <li>
+      <a href="should-i-quit-my-job-without-another-job.html">
+        Should I Quit My Job Without Another Job?
+      </a>
+    </li>
+
+    <li>
+      <a href="decision-matrix-life-choices.html">
+        Decision Matrix for Life Choices
+      </a>
+    </li>
+
+    <li>
+      <a href="job-offer-decision-calculator.html">
+        Job Offer Decision Calculator
+      </a>
+    </li>
+
+    <li>
+      <a href="career-decision-calculator.html">
+        Career Decision Calculator
+      </a>
+    </li>
+
+    <li>
+      <a href="how-to-make-tough-decisions.html">
+        How to Make Tough Decisions
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+
 <footer>
-  <p>© 2026 Life Decision Simulator</p>
+
+  <p>
+    <a href="index.html">Life Decision Simulator</a>
+    — Free tools for making difficult life and career decisions.
+  </p>
+
 </footer>
+
 
 <script>
 
 const form = document.getElementById("form");
 const resultDiv = document.getElementById("result");
 
-const satisfactionSlider = form.satisfaction;
-const stressSlider = form.stress;
+const satisfactionSlider = document.getElementById("satisfaction");
+const stressSlider = document.getElementById("stress");
 
 const satisfactionSpan = document.getElementById("satisfactionValue");
 const stressSpan = document.getElementById("stressValue");
@@ -537,29 +824,42 @@ const stressSpan = document.getElementById("stressValue");
 const high = document.getElementById("high");
 const medium = document.getElementById("medium");
 const low = document.getElementById("low");
+
 const nextSteps = document.getElementById("next-steps");
+
+
+/* Hide result sections initially */
 
 high.style.display = "none";
 medium.style.display = "none";
 low.style.display = "none";
 
-satisfactionSlider.oninput = () => {
+
+/* Update slider values */
+
+satisfactionSlider.oninput = function() {
   satisfactionSpan.textContent = satisfactionSlider.value;
 };
 
-stressSlider.oninput = () => {
+stressSlider.oninput = function() {
   stressSpan.textContent = stressSlider.value;
 };
 
-form.onsubmit = (e) => {
+
+/* Simulator */
+
+form.onsubmit = function(e) {
 
   e.preventDefault();
 
-  let score =
-    (10 - satisfactionSlider.value) * 5 +
-    stressSlider.value * 5;
+  const salary = Number(form.salary.value);
+  const expenses = Number(form.expenses.value);
+  const satisfaction = Number(satisfactionSlider.value);
+  const stress = Number(stressSlider.value);
 
-  if (Number(form.salary.value) > Number(form.expenses.value)) {
+  let score = (10 - satisfaction) * 5 + stress * 5;
+
+  if (salary > expenses) {
     score += 10;
   }
 
@@ -571,11 +871,18 @@ form.onsubmit = (e) => {
     score = 100;
   }
 
+
+  /* Hide all previous sections */
+
   high.style.display = "none";
   medium.style.display = "none";
   low.style.display = "none";
 
+
   let message = "";
+
+
+  /* High result */
 
   if (score > 70) {
 
@@ -584,32 +891,50 @@ form.onsubmit = (e) => {
     high.style.display = "block";
 
     message =
-      "Your answers suggest that leaving may be worth seriously considering. Before making a final decision, make sure you have a realistic financial and career plan.";
+      "Your answers suggest that leaving may be worth serious consideration. Make sure you also review your finances and next steps before making a final decision.";
+  }
 
-  } else if (score > 40) {
+
+  /* Medium result */
+
+  else if (score > 40) {
 
     resultDiv.className = "result-medium";
 
     medium.style.display = "block";
 
     message =
-      "Your answers suggest that you may want a change, but there are still important factors to consider before quitting.";
+      "You appear to be caught between wanting change and wanting security. Consider exploring alternatives before making a final decision.";
+  }
 
-  } else {
+
+  /* Low result */
+
+  else {
 
     resultDiv.className = "result-low";
 
     low.style.display = "block";
 
     message =
-      "Your answers suggest that quitting may not be the most immediate option. Consider whether your situation can improve before making a final decision.";
-
+      "Based on your answers, staying for now may provide more stability. That does not mean you cannot work toward a different future.";
   }
 
+
   resultDiv.innerHTML =
-    `<h2>${score}% ready to quit</h2><p>${message}</p>`;
+    `<h2>${score}% readiness to quit</h2>
+     <p>${message}</p>`;
+
 
   nextSteps.style.display = "block";
+
+
+  /* Bring result into view */
+
+  resultDiv.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 
 };
 
